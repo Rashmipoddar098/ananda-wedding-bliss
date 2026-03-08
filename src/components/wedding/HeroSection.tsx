@@ -13,12 +13,12 @@ const HeroSection = () => {
         className="text-center mb-8 z-20"
       >
         <p className="font-script text-2xl text-gold mb-2">Together Forever</p>
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary">
+        <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-primary">
           Ananya{" "}
-          <span className="font-script text-gold text-4xl md:text-5xl">&</span>{" "}
+          <span className="font-script text-gold text-2xl sm:text-4xl md:text-5xl">&</span>{" "}
           Rahul
         </h1>
-        <p className="font-body text-xl md:text-2xl text-muted-foreground mt-4">
+        <p className="font-body text-base sm:text-xl md:text-2xl text-muted-foreground mt-3 md:mt-4 px-2">
           12 February 2026 • Jaipur, Rajasthan
         </p>
       </motion.div>
@@ -35,14 +35,14 @@ const HeroSection = () => {
           <img
             src={coupleImg}
             alt="Ananya and Rahul performing wedding rituals around the sacred fire"
-            className="w-72 md:w-96 lg:w-[28rem] object-contain drop-shadow-2xl"
+            className="w-48 sm:w-72 md:w-96 lg:w-[28rem] object-contain drop-shadow-2xl"
           />
         </div>
       </motion.div>
 
       {/* Decorative circle behind couple */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border-2 border-gold/20 z-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[580px] md:h-[580px] rounded-full border border-gold/10 z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] rounded-full border-2 border-gold/20 z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[400px] sm:h-[400px] md:w-[580px] md:h-[580px] rounded-full border border-gold/10 z-10" />
     </section>
   );
 };
