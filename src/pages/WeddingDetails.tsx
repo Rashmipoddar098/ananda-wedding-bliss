@@ -9,7 +9,7 @@ import mandalaImg from "@/assets/mandala-border.png";
 const WeddingDetails = () => {
   return (
     <div className="min-h-screen gradient-wedding relative">
-      <FloatingPetals />
+      
       <HeroSection />
       <img src={mandalaImg} alt="" className="w-full opacity-30" />
       <CountdownSection />
