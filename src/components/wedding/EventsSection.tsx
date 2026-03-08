@@ -13,7 +13,7 @@ interface WeddingEvent {
 const events: WeddingEvent[] = [
   {
     name: "Haldi Ceremony",
-    date: "10 February 2026",
+    date: "6 May 2026",
     time: "10:00 AM",
     dressCode: "Yellow Traditional",
     location: "Sharma Family Residence",
@@ -21,7 +21,7 @@ const events: WeddingEvent[] = [
   },
   {
     name: "Mehendi Ceremony",
-    date: "11 February 2026",
+    date: "7 May 2026",
     time: "4:00 PM",
     dressCode: "Green / Floral Traditional",
     location: "Royal Garden Banquet Hall",
@@ -29,7 +29,7 @@ const events: WeddingEvent[] = [
   },
   {
     name: "Wedding Ceremony",
-    date: "12 February 2026",
+    date: "8 May 2026",
     time: "10:00 AM",
     dressCode: "Red / Maroon Traditional",
     location: "Grand Palace Convention Center, Jaipur",

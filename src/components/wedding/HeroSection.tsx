@@ -189,7 +189,7 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-gold-light/80 mt-2 sm:mt-4 z-10 tracking-wide"
         >
-          12 February 2026 • Jaipur, Rajasthan
+          8 May 2026 • Jaipur, Rajasthan
         </motion.p>
       </div>
     </section>
