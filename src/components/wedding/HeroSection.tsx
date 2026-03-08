@@ -116,21 +116,21 @@ const HeroSection = () => {
           {/* Radial glow */}
           <div className="w-[210px] h-[210px] xs:w-[260px] xs:h-[260px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5" />
 
-          {/* Bouquets on the inner ring (3rd circle) */}
+          {/* Bouquets on the circle */}
           <div className="block xs:hidden">
-            <CircleBouquets radius={88} size={38} positions={mobileBouquetPositions} />
+            <CircleBouquets radius={105} size={42} positions={mobileBouquetPositions} />
           </div>
           <div className="hidden xs:block sm:hidden">
-            <CircleBouquets radius={110} size={48} positions={mobileBouquetPositions} />
+            <CircleBouquets radius={132} size={55} positions={mobileBouquetPositions} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleBouquets radius={195} size={90} positions={bouquetPositions} />
+            <CircleBouquets radius={235} size={105} positions={bouquetPositions} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleBouquets radius={265} size={115} positions={bouquetPositions} />
+            <CircleBouquets radius={315} size={135} positions={bouquetPositions} />
           </div>
           <div className="hidden lg:block">
-            <CircleBouquets radius={310} size={135} positions={bouquetPositions} />
+            <CircleBouquets radius={365} size={155} positions={bouquetPositions} />
           </div>
         </div>
 
