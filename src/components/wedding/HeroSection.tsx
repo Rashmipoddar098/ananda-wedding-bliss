@@ -49,7 +49,7 @@ const BouquetOnCircle = ({
 }) => {
   const rad = (angle * Math.PI) / 180;
   // Push bouquets outward by half their size so they sit outside the circle
-  const outwardOffset = size * 0.5;
+  const outwardOffset = 0;
   const r = radius * radiusFactor + outwardOffset;
   const x = Math.cos(rad) * r;
   const y = Math.sin(rad) * r;
