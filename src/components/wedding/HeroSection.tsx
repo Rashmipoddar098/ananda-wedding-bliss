@@ -36,9 +36,8 @@ const BouquetOnCircle = ({
 }) => {
   const rad = (angle * Math.PI) / 180;
   const r = radius * radiusFactor;
-  const rad = (angle * Math.PI) / 180;
-  const x = Math.cos(rad) * radius;
-  const y = Math.sin(rad) * radius;
+  const x = Math.cos(rad) * r;
+  const y = Math.sin(rad) * r;
 
   return (
     <motion.img
