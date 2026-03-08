@@ -140,7 +140,7 @@ const FamilySection = () => {
             keyMembers={brideFamilyKey}
             allMembers={brideFamilyAll}
           />
-          <div className="hidden md:block w-px bg-gold/20" />
+          <div className="hidden md:block w-px bg-gold/15" />
           <FamilyColumn
             title="Groom's Family"
             keyMembers={groomFamilyKey}

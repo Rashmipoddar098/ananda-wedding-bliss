@@ -129,13 +129,13 @@ const RSVPSection = () => {
               key="success"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-background rounded-2xl p-10 shadow-wedding border border-gold/20 text-center"
+              className="bg-maroon/40 backdrop-blur-sm rounded-2xl p-10 shadow-wedding border border-gold/20 text-center"
             >
               <CheckCircle size={64} className="text-gold mx-auto mb-4" />
-              <h3 className="font-display text-2xl font-bold text-primary mb-2">
+              <h3 className="font-display text-2xl font-bold text-gold-light mb-2">
                 Thank You!
               </h3>
-              <p className="font-body text-lg text-muted-foreground">
+              <p className="font-body text-lg text-gold-light/70">
                 We look forward to celebrating with you! 💕
               </p>
             </motion.div>
