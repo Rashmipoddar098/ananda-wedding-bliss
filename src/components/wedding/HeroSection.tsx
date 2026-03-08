@@ -16,7 +16,7 @@ const bouquetPositions = [
   { angle: 196, img: bouquetDiagonal, rotate: 16,  label: "left-9",   radiusFactor: 1 },
   { angle: 204, img: bouquetLeft,     rotate: 24,  label: "left-10",  radiusFactor: 1 },
   { angle: 212, img: bouquetDiagonal, rotate: 32,  label: "left-11",  radiusFactor: 1 },
-  { angle: 220, img: bouquetDiagonal, rotate: 40,  label: "left-12",  radiusFactor: 1 },
+  
 ];
 
 // Fewer bouquets for mobile to prevent overflow
