@@ -135,7 +135,7 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="text-center z-10 mb-2 sm:mb-4"
         >
-          <h1 className={`font-display ${sizes.nameSize} font-bold text-gold-light leading-tight drop-shadow-lg`}>
+          <h1 className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}>
             Ananya
           </h1>
           <span className={`font-script text-gold ${sizes.scriptSize} block my-0 sm:my-1`}>
