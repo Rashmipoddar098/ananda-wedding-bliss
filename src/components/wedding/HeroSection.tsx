@@ -70,9 +70,9 @@ const BouquetOnCircle = ({
   );
 };
 
-const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
+const CircleBouquets = ({ radius, size, positions }: { radius: number; size: number; positions: typeof bouquetPositions }) => (
   <>
-    {bouquetPositions.map((b, i) => (
+    {positions.map((b, i) => (
       <BouquetOnCircle
         key={b.label}
         angle={b.angle}
@@ -89,36 +89,37 @@ const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-2 sm:px-4 py-16 sm:py-20 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center z-20">
 
         {/* Ring + Bouquets container */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           {/* Outer ring */}
-          <div className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
+          <div className="w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
           {/* Main shining ring */}
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-            className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
+            className="w-[240px] h-[240px] xs:w-[280px] xs:h-[280px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
           />
           {/* Inner ring */}
-          <div className="w-[250px] h-[250px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
+          <div className="w-[200px] h-[200px] xs:w-[240px] xs:h-[240px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
           {/* Radial glow */}
-          <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
+          <div className="w-[240px] h-[240px] xs:w-[280px] xs:h-[280px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* Bouquets on circle border — 3 left, 3 right */}
+          {/* Bouquets — fewer on mobile, full set on larger screens */}
           <div className="block sm:hidden">
-            <CircleBouquets radius={155} size={75} />
+            <CircleBouquets radius={125} size={55} positions={mobileBouquetPositions} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleBouquets radius={235} size={105} />
+            <CircleBouquets radius={235} size={105} positions={bouquetPositions} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleBouquets radius={315} size={135} />
+            <CircleBouquets radius={315} size={135} positions={bouquetPositions} />
           </div>
           <div className="hidden lg:block">
-            <CircleBouquets radius={365} size={155} />
+            <CircleBouquets radius={365} size={155} positions={bouquetPositions} />
+          </div>
           </div>
         </div>
 
