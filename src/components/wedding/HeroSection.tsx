@@ -1,79 +1,17 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
-import flower1 from "@/assets/flower-cluster-1.png";
-import flower2 from "@/assets/flower-cluster-2.png";
-import flower3 from "@/assets/flower-cluster-3.png";
-
-// Flower positions around the ring (angle in degrees)
-const ringFlowers = [
-  { angle: 0, img: flower1, rotate: 0 },
-  { angle: 60, img: flower3, rotate: 30 },
-  { angle: 120, img: flower2, rotate: -15 },
-  { angle: 180, img: flower1, rotate: 10 },
-  { angle: 240, img: flower3, rotate: -25 },
-  { angle: 300, img: flower2, rotate: 20 },
-];
-
-const FlowerOnRing = ({
-  angle,
-  img,
-  rotate,
-  radius,
-  size,
-  delay,
-}: {
-  angle: number;
-  img: string;
-  rotate: number;
-  radius: number;
-  size: number;
-  delay: number;
-}) => {
-  const rad = (angle * Math.PI) / 180;
-  const x = Math.cos(rad) * radius;
-  const y = Math.sin(rad) * radius;
-
-  return (
-    <motion.img
-      src={img}
-      alt=""
-      initial={{ opacity: 0, scale: 0 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.7, delay }}
-      viewport={{ once: true }}
-      className="absolute object-contain drop-shadow-lg pointer-events-none"
-      style={{
-        width: size,
-        height: size,
-        left: `calc(50% + ${x}px)`,
-        top: `calc(50% + ${y}px)`,
-        transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
-      }}
-    />
-  );
-};
-
-const ResponsiveFlowers = ({ radius, size }: { radius: number; size: number }) => (
-  <>
-    {ringFlowers.map((f, i) => (
-      <FlowerOnRing
-        key={f.angle}
-        {...f}
-        radius={radius}
-        size={size}
-        delay={0.6 + i * 0.12}
-      />
-    ))}
-  </>
-);
+import flowerTop from "@/assets/flower-arc-top.png";
+import flowerBottom from "@/assets/flower-arc-bottom.png";
+import flowerSide from "@/assets/flower-vine-side.png";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center z-20">
-        {/* Decorative circles with shine */}
+
+        {/* Ring + Flowers container */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          {/* Outer ornamental ring */}
+          {/* Outer ring */}
           <div className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
           {/* Main shining ring */}
           <motion.div
@@ -81,24 +19,73 @@ const HeroSection = () => {
             transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
             className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
           />
-          {/* Inner glowing ring */}
+          {/* Inner ring */}
           <div className="w-[250px] h-[250px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
-          {/* Soft radial glow */}
+          {/* Radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* Real flower clusters on ring — responsive */}
-          <div className="block sm:hidden">
-            <ResponsiveFlowers radius={150} size={50} />
-          </div>
-          <div className="hidden sm:block md:hidden">
-            <ResponsiveFlowers radius={230} size={70} />
-          </div>
-          <div className="hidden md:block lg:hidden">
-            <ResponsiveFlowers radius={310} size={90} />
-          </div>
-          <div className="hidden lg:block">
-            <ResponsiveFlowers radius={360} size={105} />
-          </div>
+          {/* === Flower garlands around the ring === */}
+          {/* Top arc */}
+          <motion.img
+            src={flowerTop}
+            alt=""
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="absolute drop-shadow-lg
+              w-[220px] -top-[20px]
+              sm:w-[340px] sm:-top-[30px]
+              md:w-[460px] md:-top-[40px]
+              lg:w-[530px] lg:-top-[45px]"
+            style={{ top: undefined }}
+          />
+          {/* We use responsive classes, so override inline top */}
+
+          {/* Bottom arc (flipped) */}
+          <motion.img
+            src={flowerBottom}
+            alt=""
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="absolute rotate-180 drop-shadow-lg
+              w-[220px] -bottom-[20px]
+              sm:w-[340px] sm:-bottom-[30px]
+              md:w-[460px] md:-bottom-[40px]
+              lg:w-[530px] lg:-bottom-[45px]"
+          />
+
+          {/* Left vine */}
+          <motion.img
+            src={flowerSide}
+            alt=""
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="absolute drop-shadow-lg
+              h-[180px] -left-[15px]
+              sm:h-[280px] sm:-left-[22px]
+              md:h-[380px] md:-left-[30px]
+              lg:h-[440px] lg:-left-[35px]"
+          />
+
+          {/* Right vine (mirrored) */}
+          <motion.img
+            src={flowerSide}
+            alt=""
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="absolute -scale-x-100 drop-shadow-lg
+              h-[180px] -right-[15px]
+              sm:h-[280px] sm:-right-[22px]
+              md:h-[380px] md:-right-[30px]
+              lg:h-[440px] lg:-right-[35px]"
+          />
         </div>
 
         {/* "Together Forever" */}
@@ -148,7 +135,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Date below couple */}
+        {/* Date */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
