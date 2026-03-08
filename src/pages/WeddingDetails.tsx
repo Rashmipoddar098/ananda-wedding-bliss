@@ -3,7 +3,7 @@ import CountdownSection from "@/components/wedding/CountdownSection";
 import FamilySection from "@/components/wedding/FamilySection";
 import EventsSection from "@/components/wedding/EventsSection";
 import RSVPSection from "@/components/wedding/RSVPSection";
-import FloatingPetals from "@/components/FloatingPetals";
+
 import mandalaImg from "@/assets/mandala-border.png";
 
 const WeddingDetails = () => {
