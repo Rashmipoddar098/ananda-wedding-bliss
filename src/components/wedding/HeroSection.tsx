@@ -3,59 +3,32 @@ import coupleImg from "@/assets/wedding-couple.png";
 import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
+import { useHeroSize } from "@/hooks/use-hero-size";
 
 // Full circle bouquets at equal spacing (every 24 degrees = 15 bouquets)
 const bouquetPositions = Array.from({ length: 15 }, (_, i) => {
   const angle = i * 24;
   const imgs = [bouquetLeft, bouquetDiagonal, bouquetRight];
-  return {
-    angle,
-    img: imgs[i % 3],
-    rotate: angle,
-    label: `pos-${i}`,
-    radiusFactor: 1,
-  };
+  return { angle, img: imgs[i % 3], rotate: angle, label: `pos-${i}` };
 });
 
 // Mobile: fewer bouquets (every 45 degrees = 8 bouquets)
 const mobileBouquetPositions = Array.from({ length: 8 }, (_, i) => {
   const angle = i * 45;
   const imgs = [bouquetLeft, bouquetDiagonal, bouquetRight];
-  return {
-    angle,
-    img: imgs[i % 3],
-    rotate: angle,
-    label: `mob-${i}`,
-    radiusFactor: 1,
-  };
+  return { angle, img: imgs[i % 3], rotate: angle, label: `mob-${i}` };
 });
 
 const BouquetOnCircle = ({
-  angle,
-  img,
-  rotate,
-  radius,
-  size,
-  delay,
-  radiusFactor = 1,
+  angle, img, rotate, radius, size, delay,
 }: {
-  angle: number;
-  img: string;
-  rotate: number;
-  radius: number;
-  size: number;
-  delay: number;
-  radiusFactor?: number;
+  angle: number; img: string; rotate: number; radius: number; size: number; delay: number;
 }) => {
   const rad = (angle * Math.PI) / 180;
-  // Push bouquets outward by half their size so they sit outside the circle
-  const outwardOffset = 0;
-  const r = radius * radiusFactor + outwardOffset;
-  const x = Math.cos(rad) * r;
-  const y = Math.sin(rad) * r;
+  const x = Math.cos(rad) * radius;
+  const y = Math.sin(rad) * radius;
+  const floatDuration = 4 + delay * 2;
 
-  const floatDuration = 4 + (delay * 2);
-  
   return (
     <div
       className="absolute pointer-events-none"
@@ -70,10 +43,7 @@ const BouquetOnCircle = ({
         src={img}
         alt=""
         initial={{ opacity: 0, scale: 0.3 }}
-        animate={{
-          opacity: 1,
-          scale: [1, 1.03, 1, 0.98, 1],
-        }}
+        animate={{ opacity: 1, scale: [1, 1.03, 1, 0.98, 1] }}
         transition={{
           opacity: { duration: 0.8, delay },
           scale: { duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay },
@@ -85,7 +55,9 @@ const BouquetOnCircle = ({
   );
 };
 
-const CircleBouquets = ({ radius, size, positions }: { radius: number; size: number; positions: typeof bouquetPositions }) => (
+const CircleBouquets = ({ radius, size, positions }: {
+  radius: number; size: number; positions: typeof bouquetPositions;
+}) => (
   <>
     {positions.map((b, i) => (
       <BouquetOnCircle
@@ -96,48 +68,52 @@ const CircleBouquets = ({ radius, size, positions }: { radius: number; size: num
         radius={radius}
         size={size}
         delay={0.3 + i * 0.12}
-        radiusFactor={b.radiusFactor}
       />
     ))}
   </>
 );
 
 const HeroSection = () => {
+  const sizes = useHeroSize();
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden hero-bg">
+    <section className="relative min-h-screen flex items-center justify-center px-2 py-12 sm:py-20 overflow-hidden hero-bg">
       <div className="relative flex flex-col items-center justify-center z-20">
 
-        {/* Ring + Bouquets container — use fixed size to prevent clipping */}
-        <div className="absolute flex items-center justify-center pointer-events-none w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] lg:w-[900px] lg:h-[900px]">
+        {/* Ring + Bouquets container */}
+        <div
+          className="absolute flex items-center justify-center pointer-events-none"
+          style={{ width: sizes.containerSize, height: sizes.containerSize }}
+        >
           {/* Outer ring */}
-          <div className="w-[240px] h-[240px] xs:w-[300px] xs:h-[300px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
+          <div
+            className="rounded-full absolute border border-gold/15"
+            style={{ width: sizes.outerRing, height: sizes.outerRing }}
+          />
           {/* Main shining ring */}
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-            className="w-[210px] h-[210px] xs:w-[260px] xs:h-[260px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
+            className="rounded-full absolute hero-circle-shine"
+            style={{ width: sizes.shineRing, height: sizes.shineRing }}
           />
           {/* Inner ring */}
-          <div className="w-[175px] h-[175px] xs:w-[220px] xs:h-[220px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
+          <div
+            className="rounded-full absolute hero-circle-inner"
+            style={{ width: sizes.innerRing, height: sizes.innerRing }}
+          />
           {/* Radial glow */}
-          <div className="w-[210px] h-[210px] xs:w-[260px] xs:h-[260px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5" />
+          <div
+            className="rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5"
+            style={{ width: sizes.shineRing, height: sizes.shineRing }}
+          />
 
-          {/* Bouquets on the circle */}
-          <div className="block xs:hidden">
-            <CircleBouquets radius={105} size={24} positions={mobileBouquetPositions} />
-          </div>
-          <div className="hidden xs:block sm:hidden">
-            <CircleBouquets radius={132} size={32} positions={mobileBouquetPositions} />
-          </div>
-          <div className="hidden sm:block md:hidden">
-            <CircleBouquets radius={232} size={55} positions={bouquetPositions} />
-          </div>
-          <div className="hidden md:block lg:hidden">
-            <CircleBouquets radius={312} size={75} positions={bouquetPositions} />
-          </div>
-          <div className="hidden lg:block">
-            <CircleBouquets radius={362} size={85} positions={bouquetPositions} />
-          </div>
+          {/* Bouquets */}
+          <CircleBouquets
+            radius={sizes.bouquetRadius}
+            size={sizes.bouquetSize}
+            positions={sizes.useMobileBouquets ? mobileBouquetPositions : bouquetPositions}
+          />
         </div>
 
         {/* "Together Forever" */}
@@ -146,7 +122,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="font-script text-base xs:text-lg sm:text-2xl md:text-3xl text-gold mb-1 sm:mb-2 z-10"
+          className={`font-script ${sizes.scriptSize} text-gold mb-1 sm:mb-2 z-10`}
         >
           Together Forever
         </motion.p>
@@ -159,13 +135,13 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="text-center z-10 mb-2 sm:mb-4"
         >
-          <h1 className="font-display text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gold-light leading-tight drop-shadow-lg">
+          <h1 className={`font-display ${sizes.nameSize} font-bold text-gold-light leading-tight drop-shadow-lg`}>
             Ananya
           </h1>
-          <span className="font-script text-gold text-lg xs:text-xl sm:text-3xl md:text-4xl block my-0 sm:my-1">
-            &
+          <span className={`font-script text-gold ${sizes.scriptSize} block my-0 sm:my-1`}>
+            &amp;
           </span>
-          <h1 className="font-display text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gold-light leading-tight drop-shadow-lg">
+          <h1 className={`font-display ${sizes.nameSize} font-bold text-gold-light leading-tight drop-shadow-lg`}>
             Rahul
           </h1>
         </motion.div>
@@ -182,7 +158,7 @@ const HeroSection = () => {
             <img
               src={coupleImg}
               alt="Ananya and Rahul performing wedding rituals around the sacred fire"
-              className="w-24 xs:w-28 sm:w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
+              className={`${sizes.coupleWidth} object-contain drop-shadow-2xl`}
             />
           </div>
         </motion.div>
@@ -193,7 +169,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-gold-light/80 mt-2 sm:mt-4 z-10 tracking-wide"
+          className={`font-body ${sizes.dateSize} text-gold-light/80 mt-2 sm:mt-4 z-10 tracking-wide`}
         >
           8 May 2026 • Jaipur, Rajasthan
         </motion.p>
