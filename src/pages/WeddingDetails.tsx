@@ -3,13 +3,13 @@ import CountdownSection from "@/components/wedding/CountdownSection";
 import FamilySection from "@/components/wedding/FamilySection";
 import EventsSection from "@/components/wedding/EventsSection";
 import RSVPSection from "@/components/wedding/RSVPSection";
-import FloatingPetals from "@/components/FloatingPetals";
+
 import mandalaImg from "@/assets/mandala-border.png";
 
 const WeddingDetails = () => {
   return (
     <div className="min-h-screen gradient-wedding relative">
-      <FloatingPetals />
+      
       <HeroSection />
       <img src={mandalaImg} alt="" className="w-full opacity-30" />
       <CountdownSection />
