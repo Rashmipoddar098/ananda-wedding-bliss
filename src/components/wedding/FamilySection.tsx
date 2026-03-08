@@ -46,7 +46,7 @@ const FamilyColumn = ({
 
   return (
     <div className="flex-1">
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+      <h3 className="font-display text-2xl md:text-3xl font-bold text-gold mb-6 text-center">
         {title}
       </h3>
 
