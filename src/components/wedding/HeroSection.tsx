@@ -85,16 +85,16 @@ const HeroSection = () => {
 
           {/* Flowers around the circle — responsive */}
           <div className="block sm:hidden">
-            <CircleFlowers radius={155} size={55} />
+            <CircleFlowers radius={120} size={50} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleFlowers radius={235} size={75} />
+            <CircleFlowers radius={190} size={65} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleFlowers radius={315} size={95} />
+            <CircleFlowers radius={260} size={80} />
           </div>
           <div className="hidden lg:block">
-            <CircleFlowers radius={365} size={110} />
+            <CircleFlowers radius={305} size={95} />
           </div>
         </div>
 
