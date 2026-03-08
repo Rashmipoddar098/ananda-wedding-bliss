@@ -3,6 +3,8 @@ import coupleImg from "@/assets/wedding-couple.png";
 import flower1 from "@/assets/flower-cluster-1.png";
 import flower2 from "@/assets/flower-cluster-2.png";
 import flower3 from "@/assets/flower-cluster-3.png";
+import bouquetLeft from "@/assets/floral-bouquet-left.png";
+import bouquetRight from "@/assets/floral-bouquet-right.png";
 
 // Flowers placed at angles around the circle, each rotated tangent to the curve
 const flowers = [
@@ -95,7 +97,41 @@ const HeroSection = () => {
           </div>
           <div className="hidden lg:block">
             <CircleFlowers radius={305} size={95} />
-          </div>
+
+          {/* Floral Bouquet - Left */}
+          <motion.img
+            src={bouquetLeft}
+            alt=""
+            initial={{ opacity: 0, x: -40, scale: 0.8 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="absolute pointer-events-none z-20 
+              w-24 -left-8 top-1/2 -translate-y-1/2
+              sm:w-36 sm:-left-12
+              md:w-48 md:-left-16
+              lg:w-56 lg:-left-20
+              animate-float drop-shadow-xl"
+            style={{ animationDelay: "0.5s" }}
+          />
+
+          {/* Floral Bouquet - Right */}
+          <motion.img
+            src={bouquetRight}
+            alt=""
+            initial={{ opacity: 0, x: 40, scale: 0.8 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="absolute pointer-events-none z-20
+              w-24 -right-8 top-1/2 -translate-y-1/2
+              sm:w-36 sm:-right-12
+              md:w-48 md:-right-16
+              lg:w-56 lg:-right-20
+              animate-float drop-shadow-xl"
+            style={{ animationDelay: "1.5s" }}
+          />
+        </div>
         </div>
 
         {/* "Together Forever" */}
