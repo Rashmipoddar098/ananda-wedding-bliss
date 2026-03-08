@@ -6,13 +6,37 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
       {/* Central circle container — names + couple all inside */}
       <div className="relative flex flex-col items-center justify-center z-20">
-        {/* Decorative circles */}
+        {/* Decorative circles with shine */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full border-2 border-gold/25 absolute" />
-          <div className="w-[250px] h-[250px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full border border-gold/15 absolute" />
-          <div className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full border border-gold/10 absolute" />
+          {/* Outer ornamental ring — slow spin + shimmer */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute"
+            style={{
+              border: "1px solid transparent",
+              borderImage: "linear-gradient(135deg, hsl(var(--gold) / 0.05), hsl(var(--gold) / 0.3), hsl(var(--gold) / 0.05)) 1",
+            }}
+          />
+          {/* Main shining ring */}
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+            className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
+          />
+          {/* Inner glowing ring */}
+          <div className="w-[250px] h-[250px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
           {/* Soft radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
+          {/* Sparkle dots on the ring */}
+          <motion.div
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute"
+            style={{
+              background: "radial-gradient(circle at 20% 10%, hsl(var(--gold) / 0.4) 0%, transparent 3%), radial-gradient(circle at 85% 25%, hsl(var(--gold) / 0.3) 0%, transparent 2%), radial-gradient(circle at 10% 75%, hsl(var(--gold) / 0.35) 0%, transparent 2.5%), radial-gradient(circle at 90% 80%, hsl(var(--gold) / 0.3) 0%, transparent 2%)",
+            }}
+          />
         </div>
 
         {/* "Together Forever" */}
