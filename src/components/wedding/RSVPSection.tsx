@@ -45,7 +45,7 @@ const RSVPSection = () => {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0, y: -20 }}
               onSubmit={handleSubmit}
-              className="bg-background rounded-2xl p-6 md:p-8 shadow-wedding border border-gold/20 space-y-5"
+              className="bg-maroon/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-wedding border border-gold/20 space-y-5"
             >
               <div>
                 <label className="font-display text-sm font-semibold text-primary block mb-2">
