@@ -141,7 +141,7 @@ const HeroSection = () => {
           <span className={`font-script text-gold ${sizes.scriptSize} block my-0 sm:my-1`}>
             &amp;
           </span>
-          <h1 className={`font-display ${sizes.nameSize} font-bold text-gold-light leading-tight drop-shadow-lg`}>
+          <h1 className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}>
             Rahul
           </h1>
         </motion.div>
