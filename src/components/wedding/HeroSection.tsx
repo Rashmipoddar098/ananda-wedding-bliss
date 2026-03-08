@@ -5,16 +5,9 @@ import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
 // 3 bouquets on left side (angles: 150°, 180°, 210°) and 3 on right (330°, 0°, 30°)
-// Offset: right side bouquets pulled slightly inward via smaller radius multiplier
 const bouquetPositions = [
-  // Right side — top, middle, bottom (radiusFactor < 1 to pull onto circle line)
-  { angle: -30,  img: bouquetRight,    rotate: 15,   label: "right-top",    radiusFactor: 0.88 },
-  { angle: 0,    img: bouquetDiagonal, rotate: 0,    label: "right-mid",    radiusFactor: 0.88 },
-  { angle: 30,   img: bouquetRight,    rotate: -15,  label: "right-bottom", radiusFactor: 0.88 },
-  // Left side — top, middle, bottom
-  { angle: 150,  img: bouquetLeft,     rotate: 15,   label: "left-bottom",  radiusFactor: 1 },
-  { angle: 180,  img: bouquetDiagonal, rotate: 0,    label: "left-mid",     radiusFactor: 1 },
-  { angle: 210,  img: bouquetLeft,     rotate: -15,  label: "left-top",     radiusFactor: 1 },
+  { angle: 0,   img: bouquetRight,   rotate: 0,  label: "right", radiusFactor: 0.92 },
+  { angle: 180, img: bouquetLeft,    rotate: 0,  label: "left",  radiusFactor: 1 },
 ];
 
 const BouquetOnCircle = ({
