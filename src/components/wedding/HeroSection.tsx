@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
 import flowerSide from "@/assets/flower-vine-side.png";
-
+import flowerTop from "@/assets/flower-arc-top.png";
+import flowerBottom from "@/assets/flower-arc-bottom.png";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
