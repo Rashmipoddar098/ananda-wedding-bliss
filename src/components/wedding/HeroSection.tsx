@@ -98,7 +98,7 @@ const CircleBouquets = ({ radius, size, positions }: { radius: number; size: num
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden bg-maroon">
+    <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden hero-bg">
       <div className="relative flex flex-col items-center justify-center z-20">
 
         {/* Ring + Bouquets container */}
@@ -114,7 +114,7 @@ const HeroSection = () => {
           {/* Inner ring */}
           <div className="w-[175px] h-[175px] xs:w-[220px] xs:h-[220px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
           {/* Radial glow */}
-          <div className="w-[210px] h-[210px] xs:w-[260px] xs:h-[260px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
+          <div className="w-[210px] h-[210px] xs:w-[260px] xs:h-[260px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5" />
 
           {/* Bouquets — fewer & smaller on mobile, full set on larger screens */}
           <div className="block xs:hidden">
@@ -153,13 +153,13 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="text-center z-10 mb-2 sm:mb-4"
         >
-          <h1 className="font-display text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
+          <h1 className="font-display text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gold-light leading-tight drop-shadow-lg">
             Ananya
           </h1>
           <span className="font-script text-gold text-lg xs:text-xl sm:text-3xl md:text-4xl block my-0 sm:my-1">
             &
           </span>
-          <h1 className="font-display text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
+          <h1 className="font-display text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gold-light leading-tight drop-shadow-lg">
             Rahul
           </h1>
         </motion.div>
@@ -187,7 +187,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-muted-foreground mt-2 sm:mt-4 z-10 tracking-wide"
+          className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-gold-light/80 mt-2 sm:mt-4 z-10 tracking-wide"
         >
           12 February 2026 • Jaipur, Rajasthan
         </motion.p>

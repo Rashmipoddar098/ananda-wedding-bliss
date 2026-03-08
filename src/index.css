@@ -39,7 +39,8 @@
     --gold: 40 70% 50%;
     --gold-light: 40 60% 70%;
     --gold-dark: 40 80% 35%;
-    --maroon: 0 60% 18%;
+    --maroon: 0 60% 22%;
+    --maroon-deep: 350 50% 12%;
     --maroon-light: 0 45% 45%;
     --cream: 35 50% 97%;
     --cream-dark: 35 40% 90%;
@@ -90,6 +91,10 @@
 
   .text-gold {
     color: hsl(var(--gold));
+  }
+
+  .text-gold-light {
+    color: hsl(var(--gold-light));
   }
 
   .bg-gold {
@@ -203,4 +208,27 @@
 
 .animate-petal {
   animation: petal-fall linear infinite;
+}
+
+/* Hero section rich background */
+.hero-bg {
+  background: radial-gradient(
+    ellipse at center,
+    hsl(var(--maroon) / 0.9) 0%,
+    hsl(var(--maroon-deep)) 60%,
+    hsl(350 45% 8%) 100%
+  );
+  position: relative;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    hsl(var(--gold) / 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
 }
