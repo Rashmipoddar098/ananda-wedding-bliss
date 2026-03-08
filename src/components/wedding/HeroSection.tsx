@@ -98,7 +98,7 @@ const CircleBouquets = ({ radius, size, positions }: { radius: number; size: num
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden bg-maroon">
       <div className="relative flex flex-col items-center justify-center z-20">
 
         {/* Ring + Bouquets container */}
