@@ -41,8 +41,8 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Decorative circle behind couple */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border-2 border-gold/20 z-10" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[580px] md:h-[580px] rounded-full border border-gold/10 z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] rounded-full border-2 border-gold/20 z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[400px] sm:h-[400px] md:w-[580px] md:h-[580px] rounded-full border border-gold/10 z-10" />
     </section>
   );
 };

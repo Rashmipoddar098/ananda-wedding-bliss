@@ -42,17 +42,17 @@ const CountdownSection = () => {
           Wedding Begins In
         </h2>
 
-        <div className="flex justify-center gap-4 md:gap-8">
+        <div className="flex justify-center gap-2 sm:gap-4 md:gap-8">
           {units.map((unit) => (
             <motion.div
               key={unit.label}
-              className="flex flex-col items-center bg-background rounded-xl p-4 md:p-6 shadow-wedding min-w-[70px] md:min-w-[100px] border border-gold/20"
+              className="flex flex-col items-center bg-background rounded-xl p-2 sm:p-4 md:p-6 shadow-wedding min-w-[60px] sm:min-w-[70px] md:min-w-[100px] border border-gold/20"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="font-display text-3xl md:text-5xl font-bold text-primary">
+              <span className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary">
                 {String(unit.value).padStart(2, "0")}
               </span>
-              <span className="font-body text-sm md:text-base text-muted-foreground mt-1">
+              <span className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mt-1">
                 {unit.label}
               </span>
             </motion.div>

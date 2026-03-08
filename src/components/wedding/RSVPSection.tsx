@@ -82,13 +82,13 @@ const RSVPSection = () => {
                 <label className="font-display text-sm font-semibold text-primary block mb-2">
                   Will you attend?
                 </label>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   {["yes", "no"].map((opt) => (
                     <button
                       key={opt}
                       type="button"
                       onClick={() => setForm({ ...form, attending: opt })}
-                      className={`flex-1 py-3 rounded-lg font-display text-sm border-2 transition-all ${
+                      className={`flex-1 py-3 rounded-lg font-display text-xs sm:text-sm border-2 transition-all ${
                         form.attending === opt
                           ? "border-gold bg-gold/10 text-primary"
                           : "border-input text-muted-foreground hover:border-gold/40"
