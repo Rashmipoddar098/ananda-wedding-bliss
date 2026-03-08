@@ -63,9 +63,8 @@ const BouquetOnCircle = ({
       initial={{ opacity: 0, scale: 0.3 }}
       animate={{
         opacity: 1,
-        scale: [1, 1.06, 1, 0.97, 1],
-        y: [0, -8, 0, 5, 0],
-        rotate: [rotate, rotate + 4, rotate, rotate - 3, rotate],
+        scale: [1, 1.03, 1, 0.98, 1],
+        rotate: [rotate, rotate + 2, rotate, rotate - 2, rotate],
       }}
       transition={{
         opacity: { duration: 0.8, delay },
