@@ -1,8 +1,68 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
-import flowerSide from "@/assets/flower-vine-side.png";
-import flowerTop from "@/assets/flower-arc-top.png";
-import flowerBottom from "@/assets/flower-arc-bottom.png";
+import flower1 from "@/assets/flower-cluster-1.png";
+import flower2 from "@/assets/flower-cluster-2.png";
+import flower3 from "@/assets/flower-cluster-3.png";
+
+// Flowers placed at angles around the circle, each rotated tangent to the curve
+const flowers = [
+  { angle: 0, img: flower1, rotateImg: 0 },
+  { angle: 45, img: flower3, rotateImg: 45 },
+  { angle: 90, img: flower2, rotateImg: 90 },
+  { angle: 135, img: flower1, rotateImg: 135 },
+  { angle: 180, img: flower3, rotateImg: 180 },
+  { angle: 225, img: flower2, rotateImg: 225 },
+  { angle: 270, img: flower1, rotateImg: 270 },
+  { angle: 315, img: flower3, rotateImg: 315 },
+];
+
+const FlowerOnCircle = ({
+  angle,
+  img,
+  rotateImg,
+  radius,
+  size,
+  delay,
+}: {
+  angle: number;
+  img: string;
+  rotateImg: number;
+  radius: number;
+  size: number;
+  delay: number;
+}) => {
+  const rad = (angle * Math.PI) / 180;
+  const x = Math.cos(rad) * radius;
+  const y = Math.sin(rad) * radius;
+
+  return (
+    <motion.img
+      src={img}
+      alt=""
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay }}
+      viewport={{ once: true }}
+      className="absolute object-contain drop-shadow-lg pointer-events-none"
+      style={{
+        width: size,
+        height: size,
+        left: `calc(50% + ${x}px)`,
+        top: `calc(50% + ${y}px)`,
+        transform: `translate(-50%, -50%) rotate(${rotateImg}deg)`,
+      }}
+    />
+  );
+};
+
+const CircleFlowers = ({ radius, size }: { radius: number; size: number }) => (
+  <>
+    {flowers.map((f, i) => (
+      <FlowerOnCircle key={f.angle} {...f} radius={radius} size={size} delay={0.5 + i * 0.1} />
+    ))}
+  </>
+);
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
@@ -23,66 +83,19 @@ const HeroSection = () => {
           {/* Radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* === Flowers on all 4 sides === */}
-          {/* Top flower arc */}
-          <motion.img
-            src={flowerTop}
-            alt=""
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="absolute drop-shadow-lg
-              w-[200px] -top-[8px]
-              sm:w-[300px] sm:-top-[12px]
-              md:w-[420px] md:-top-[18px]
-              lg:w-[500px] lg:-top-[22px]"
-          />
-
-          {/* Bottom flower arc (flipped) */}
-          <motion.img
-            src={flowerBottom}
-            alt=""
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            viewport={{ once: true }}
-            className="absolute rotate-180 drop-shadow-lg
-              w-[200px] -bottom-[8px]
-              sm:w-[300px] sm:-bottom-[12px]
-              md:w-[420px] md:-bottom-[18px]
-              lg:w-[500px] lg:-bottom-[22px]"
-          />
-
-          {/* Left vine */}
-          <motion.img
-            src={flowerSide}
-            alt=""
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="absolute drop-shadow-lg
-              h-[160px] -left-[10px]
-              sm:h-[250px] sm:-left-[16px]
-              md:h-[340px] md:-left-[22px]
-              lg:h-[400px] lg:-left-[28px]"
-          />
-
-          {/* Right vine (mirrored) */}
-          <motion.img
-            src={flowerSide}
-            alt=""
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            viewport={{ once: true }}
-            className="absolute -scale-x-100 drop-shadow-lg
-              h-[160px] -right-[10px]
-              sm:h-[250px] sm:-right-[16px]
-              md:h-[340px] md:-right-[22px]
-              lg:h-[400px] lg:-right-[28px]"
-          />
+          {/* Flowers around the circle — responsive */}
+          <div className="block sm:hidden">
+            <CircleFlowers radius={155} size={55} />
+          </div>
+          <div className="hidden sm:block md:hidden">
+            <CircleFlowers radius={235} size={75} />
+          </div>
+          <div className="hidden md:block lg:hidden">
+            <CircleFlowers radius={315} size={95} />
+          </div>
+          <div className="hidden lg:block">
+            <CircleFlowers radius={365} size={110} />
+          </div>
         </div>
 
         {/* "Together Forever" */}
