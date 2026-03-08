@@ -5,15 +5,16 @@ import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
 // 3 bouquets on left side (angles: 150°, 180°, 210°) and 3 on right (330°, 0°, 30°)
+// Offset: right side bouquets pulled slightly inward via smaller radius multiplier
 const bouquetPositions = [
-  // Right side — top, middle, bottom
-  { angle: -30,  img: bouquetRight,    rotate: 15,   label: "right-top" },
-  { angle: 0,    img: bouquetDiagonal, rotate: 0,    label: "right-mid" },
-  { angle: 30,   img: bouquetRight,    rotate: -15,  label: "right-bottom" },
+  // Right side — top, middle, bottom (radiusFactor < 1 to pull onto circle line)
+  { angle: -30,  img: bouquetRight,    rotate: 15,   label: "right-top",    radiusFactor: 0.88 },
+  { angle: 0,    img: bouquetDiagonal, rotate: 0,    label: "right-mid",    radiusFactor: 0.88 },
+  { angle: 30,   img: bouquetRight,    rotate: -15,  label: "right-bottom", radiusFactor: 0.88 },
   // Left side — top, middle, bottom
-  { angle: 150,  img: bouquetLeft,     rotate: 15,   label: "left-bottom" },
-  { angle: 180,  img: bouquetDiagonal, rotate: 0,    label: "left-mid" },
-  { angle: 210,  img: bouquetLeft,     rotate: -15,  label: "left-top" },
+  { angle: 150,  img: bouquetLeft,     rotate: 15,   label: "left-bottom",  radiusFactor: 1 },
+  { angle: 180,  img: bouquetDiagonal, rotate: 0,    label: "left-mid",     radiusFactor: 1 },
+  { angle: 210,  img: bouquetLeft,     rotate: -15,  label: "left-top",     radiusFactor: 1 },
 ];
 
 const BouquetOnCircle = ({
@@ -23,6 +24,7 @@ const BouquetOnCircle = ({
   radius,
   size,
   delay,
+  radiusFactor = 1,
 }: {
   angle: number;
   img: string;
@@ -30,10 +32,12 @@ const BouquetOnCircle = ({
   radius: number;
   size: number;
   delay: number;
+  radiusFactor?: number;
 }) => {
   const rad = (angle * Math.PI) / 180;
-  const x = Math.cos(rad) * radius;
-  const y = Math.sin(rad) * radius;
+  const r = radius * radiusFactor;
+  const x = Math.cos(rad) * r;
+  const y = Math.sin(rad) * r;
 
   return (
     <motion.img
@@ -66,6 +70,7 @@ const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
         radius={radius}
         size={size}
         delay={0.3 + i * 0.12}
+        radiusFactor={b.radiusFactor}
       />
     ))}
   </>
