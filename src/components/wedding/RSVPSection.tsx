@@ -33,7 +33,7 @@ const RSVPSection = () => {
       >
         <div className="text-center mb-10">
           <p className="font-script text-3xl text-gold mb-2">RSVP</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light">
             Confirm Your Attendance
           </h2>
         </div>
