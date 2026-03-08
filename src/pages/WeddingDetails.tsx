@@ -19,9 +19,9 @@ const WeddingDetails = () => {
       <img src={mandalaImg} alt="" className="w-full opacity-15" />
       <RSVPSection />
       {/* Footer */}
-      <footer className="text-center py-10 border-t border-gold/10">
-        <p className="font-script text-3xl text-gold mb-2">Ananya & Rahul</p>
-        <p className="font-body text-gold-light/60 text-lg">
+      <footer className="text-center py-10 border-t border-primary/10">
+        <p className="font-script text-3xl text-primary mb-2">Ananya & Rahul</p>
+        <p className="font-body text-muted-foreground text-lg">
           Made with love for our special day 💕
         </p>
       </footer>

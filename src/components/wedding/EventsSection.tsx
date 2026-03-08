@@ -49,7 +49,7 @@ const EventsSection = () => {
       >
         <div className="text-center mb-12">
           <p className="font-script text-3xl text-gold mb-2">Celebrations</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
             Wedding Events
           </h2>
         </div>
@@ -63,27 +63,27 @@ const EventsSection = () => {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="bg-maroon/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-wedding border border-gold/20 text-center"
+              className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-wedding border border-primary/15 text-center"
             >
               <span className="text-4xl mb-4 block">{event.emoji}</span>
-              <h3 className="font-display text-xl md:text-2xl font-bold text-gold mb-5">
+              <h3 className="font-display text-xl md:text-2xl font-bold text-primary mb-5">
                 {event.name}
               </h3>
 
               <div className="space-y-3 text-left">
-                <div className="flex items-center gap-3 font-body text-gold-light/80">
+                <div className="flex items-center gap-3 font-body text-foreground/80">
                   <Calendar size={18} className="text-gold flex-shrink-0" />
                   <span>{event.date}</span>
                 </div>
-                <div className="flex items-center gap-3 font-body text-gold-light/80">
+                <div className="flex items-center gap-3 font-body text-foreground/80">
                   <Clock size={18} className="text-gold flex-shrink-0" />
                   <span>{event.time}</span>
                 </div>
-                <div className="flex items-center gap-3 font-body text-gold-light/80">
+                <div className="flex items-center gap-3 font-body text-foreground/80">
                   <Shirt size={18} className="text-gold flex-shrink-0" />
                   <span>{event.dressCode}</span>
                 </div>
-                <div className="flex items-center gap-3 font-body text-gold-light/80">
+                <div className="flex items-center gap-3 font-body text-foreground/80">
                   <MapPin size={18} className="text-gold flex-shrink-0" />
                   <span>{event.location}</span>
                 </div>

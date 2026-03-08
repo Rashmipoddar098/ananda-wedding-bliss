@@ -33,7 +33,7 @@ const RSVPSection = () => {
       >
         <div className="text-center mb-10">
           <p className="font-script text-3xl text-gold mb-2">RSVP</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
             Confirm Your Attendance
           </h2>
         </div>
@@ -45,30 +45,30 @@ const RSVPSection = () => {
               initial={{ opacity: 1 }}
               exit={{ opacity: 0, y: -20 }}
               onSubmit={handleSubmit}
-              className="bg-maroon/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-wedding border border-gold/20 space-y-5"
+              className="bg-card/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-wedding border border-primary/15 space-y-5"
             >
               <div>
-                <label className="font-display text-sm font-semibold text-gold block mb-2">
+                <label className="font-display text-sm font-semibold text-primary block mb-2">
                   Full Name *
                 </label>
                 <input
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gold/20 bg-maroon/30 font-body text-gold-light focus:outline-none focus:ring-2 focus:ring-gold/50 placeholder:text-gold-light/40"
+                  className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-background/60 font-body text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 placeholder:text-muted-foreground/60"
                   placeholder="Enter your full name"
                   maxLength={100}
                 />
               </div>
 
               <div>
-                <label className="font-display text-sm font-semibold text-gold block mb-2">
+                <label className="font-display text-sm font-semibold text-primary block mb-2">
                   Number of Guests
                 </label>
                 <select
                   value={form.guests}
                   onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gold/20 bg-maroon/30 font-body text-gold-light focus:outline-none focus:ring-2 focus:ring-gold/50"
+                  className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-background/60 font-body text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
                 >
                   {[1, 2, 3, 4, 5].map((n) => (
                     <option key={n} value={n}>
@@ -79,7 +79,7 @@ const RSVPSection = () => {
               </div>
 
               <div>
-                <label className="font-display text-sm font-semibold text-gold block mb-2">
+                <label className="font-display text-sm font-semibold text-primary block mb-2">
                   Will you attend?
                 </label>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -90,8 +90,8 @@ const RSVPSection = () => {
                       onClick={() => setForm({ ...form, attending: opt })}
                       className={`flex-1 py-3 rounded-lg font-display text-xs sm:text-sm border-2 transition-all ${
                         form.attending === opt
-                          ? "border-gold bg-gold/10 text-gold"
-                          : "border-gold/20 text-gold-light/60 hover:border-gold/40"
+                          ? "border-accent bg-accent/10 text-primary"
+                          : "border-primary/20 text-muted-foreground hover:border-primary/40"
                       }`}
                     >
                       {opt === "yes" ? "🎉 Yes, I'll be there!" : "😢 Sorry, can't make it"}
@@ -101,13 +101,13 @@ const RSVPSection = () => {
               </div>
 
               <div>
-                <label className="font-display text-sm font-semibold text-gold block mb-2">
+                <label className="font-display text-sm font-semibold text-primary block mb-2">
                   Message (Optional)
                 </label>
                 <textarea
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gold/20 bg-maroon/30 font-body text-gold-light focus:outline-none focus:ring-2 focus:ring-gold/50 resize-none placeholder:text-gold-light/40"
+                  className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-background/60 font-body text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 resize-none placeholder:text-muted-foreground/60"
                   rows={3}
                   placeholder="Write your wishes..."
                   maxLength={500}
@@ -129,13 +129,13 @@ const RSVPSection = () => {
               key="success"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-maroon/40 backdrop-blur-sm rounded-2xl p-10 shadow-wedding border border-gold/20 text-center"
+              className="bg-card/80 backdrop-blur-sm rounded-2xl p-10 shadow-wedding border border-primary/15 text-center"
             >
               <CheckCircle size={64} className="text-gold mx-auto mb-4" />
-              <h3 className="font-display text-2xl font-bold text-gold-light mb-2">
+              <h3 className="font-display text-2xl font-bold text-primary mb-2">
                 Thank You!
               </h3>
-              <p className="font-body text-lg text-gold-light/70">
+              <p className="font-body text-lg text-muted-foreground">
                 We look forward to celebrating with you! 💕
               </p>
             </motion.div>

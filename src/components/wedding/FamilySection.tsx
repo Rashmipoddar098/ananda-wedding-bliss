@@ -43,7 +43,7 @@ const MemberCard = ({ member, index }: { member: FamilyMember; index: number }) 
     viewport={{ once: true }}
     className="group relative"
   >
-    <div className="relative flex items-center gap-4 rounded-2xl p-4 sm:p-5 border border-gold/20 bg-gradient-to-br from-maroon/60 to-maroon/30 backdrop-blur-sm shadow-lg hover:border-gold/40 hover:shadow-wedding transition-all duration-300">
+    <div className="relative flex items-center gap-4 rounded-2xl p-4 sm:p-5 border border-primary/15 bg-card/80 backdrop-blur-sm shadow-lg hover:border-accent/40 hover:shadow-wedding transition-all duration-300">
       {/* Avatar */}
       <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
         <div className="absolute inset-0 gradient-gold opacity-90" />
@@ -53,14 +53,14 @@ const MemberCard = ({ member, index }: { member: FamilyMember; index: number }) 
       </div>
       {/* Info */}
       <div className="min-w-0">
-        <p className="font-display font-semibold text-gold-light text-base sm:text-lg leading-snug truncate">
+        <p className="font-display font-semibold text-primary text-base sm:text-lg leading-snug truncate">
           {member.name}
         </p>
-        <p className="font-body text-sm text-gold/70 italic">{member.relation}</p>
+        <p className="font-body text-sm text-muted-foreground italic">{member.relation}</p>
       </div>
       {/* Decorative accent */}
       <div className="absolute top-2 right-3 w-6 h-6 opacity-10 group-hover:opacity-25 transition-opacity">
-        <Heart className="w-full h-full text-gold fill-gold" />
+        <Heart className="w-full h-full text-accent fill-accent" />
       </div>
     </div>
   </motion.div>
@@ -100,20 +100,20 @@ const FamilyColumn = ({
       />
 
       {/* Card wrapper */}
-      <div className="relative rounded-3xl border border-gold/15 bg-gradient-to-b from-maroon/50 via-maroon/30 to-transparent p-5 sm:p-8 backdrop-blur-sm">
+      <div className="relative rounded-3xl border border-primary/10 bg-card/60 p-5 sm:p-8 backdrop-blur-sm">
         {/* Top decorative line */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[2px] gradient-gold rounded-full" />
 
         <div className="text-center mb-6 sm:mb-8">
           <p className="font-script text-xl sm:text-2xl text-gold mb-1">{subtitle}</p>
-          <h3 className="font-display text-2xl sm:text-3xl font-bold text-gold-light">
+          <h3 className="font-display text-2xl sm:text-3xl font-bold text-primary">
             {title}
           </h3>
           {/* Ornamental divider */}
           <div className="flex items-center justify-center gap-3 mt-3">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
-            <Heart size={12} className="text-gold fill-gold/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-accent/40" />
+            <Heart size={12} className="text-accent fill-accent/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-accent/40" />
           </div>
         </div>
 
@@ -127,7 +127,7 @@ const FamilyColumn = ({
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setShowAll(true)}
-          className="mt-6 sm:mt-8 mx-auto flex items-center gap-2 px-7 py-3 rounded-full border border-gold/30 bg-gradient-to-r from-gold/10 to-gold/5 text-gold font-display text-sm sm:text-base hover:from-gold/20 hover:to-gold/10 hover:border-gold/50 transition-all duration-300 shadow-md"
+          className="mt-6 sm:mt-8 mx-auto flex items-center gap-2 px-7 py-3 rounded-full border border-accent/30 bg-gradient-to-r from-accent/10 to-accent/5 text-primary font-display text-sm sm:text-base hover:from-accent/20 hover:to-accent/10 hover:border-accent/50 transition-all duration-300 shadow-md"
         >
           <Users size={16} />
           View All Members
@@ -149,7 +149,7 @@ const FamilyColumn = ({
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.85, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative bg-gradient-to-b from-maroon to-maroon/95 rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[80vh] overflow-y-auto shadow-2xl border border-gold/25"
+              className="relative bg-card rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[80vh] overflow-y-auto shadow-2xl border border-primary/15"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal top accent */}
@@ -158,11 +158,11 @@ const FamilyColumn = ({
               <div className="flex justify-between items-center mb-6">
                 <div>
                   <p className="font-script text-lg text-gold">{subtitle}</p>
-                  <h4 className="font-display text-xl font-bold text-gold-light">{title}</h4>
+                  <h4 className="font-display text-xl font-bold text-primary">{title}</h4>
                 </div>
                 <button
                   onClick={() => setShowAll(false)}
-                  className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-gold-light/60 hover:text-gold hover:border-gold/40 transition-colors"
+                  className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
                 >
                   <X size={20} />
                 </button>
@@ -186,7 +186,7 @@ const FamilySection = () => {
     <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/[0.03] blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/[0.03] blur-3xl" />
       </div>
 
       <motion.div
@@ -212,17 +212,17 @@ const FamilySection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gold-light mb-4"
+            className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4"
           >
             The Two Families Becoming One
           </motion.h2>
           {/* Ornamental divider */}
           <div className="flex items-center justify-center gap-4 mt-4">
-            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent to-gold/40" />
-            <div className="w-3 h-3 rounded-full border border-gold/40 flex items-center justify-center">
-              <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent to-accent/40" />
+            <div className="w-3 h-3 rounded-full border border-accent/40 flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent/60" />
             </div>
-            <div className="w-16 sm:w-24 h-px bg-gradient-to-l from-transparent to-gold/40" />
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-l from-transparent to-accent/40" />
           </div>
         </div>
 
@@ -239,15 +239,15 @@ const FamilySection = () => {
 
           {/* Center divider */}
           <div className="hidden md:flex flex-col items-center gap-4 py-8">
-            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-gold/25 to-transparent" />
-            <Heart size={16} className="text-gold/40 fill-gold/20 flex-shrink-0" />
-            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-gold/25 to-transparent" />
+            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-accent/25 to-transparent" />
+            <Heart size={16} className="text-accent/40 fill-accent/20 flex-shrink-0" />
+            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-accent/25 to-transparent" />
           </div>
           {/* Mobile divider */}
           <div className="flex md:hidden items-center justify-center gap-4">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
-            <Heart size={14} className="text-gold/40 fill-gold/20 flex-shrink-0" />
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-gold/25 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
+            <Heart size={14} className="text-accent/40 fill-accent/20 flex-shrink-0" />
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-accent/25 to-transparent" />
           </div>
 
           <FamilyColumn
