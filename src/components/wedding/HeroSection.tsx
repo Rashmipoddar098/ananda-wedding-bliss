@@ -101,8 +101,8 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden hero-bg">
       <div className="relative flex flex-col items-center justify-center z-20">
 
-        {/* Ring + Bouquets container */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Ring + Bouquets container — use fixed size to prevent clipping */}
+        <div className="absolute flex items-center justify-center pointer-events-none w-[300px] h-[300px] xs:w-[360px] xs:h-[360px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] lg:w-[900px] lg:h-[900px]">
           {/* Outer ring */}
           <div className="w-[240px] h-[240px] xs:w-[300px] xs:h-[300px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
           {/* Main shining ring */}
