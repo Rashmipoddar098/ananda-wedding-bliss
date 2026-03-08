@@ -2,19 +2,18 @@ import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
 import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
-import bouquetTop from "@/assets/floral-bouquet-top.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
-// 8 bouquet positions around the circle (angle in degrees, 0 = right, 90 = bottom)
+// 3 bouquets on left side (angles: 150°, 180°, 210°) and 3 on right (330°, 0°, 30°)
 const bouquetPositions = [
-  { angle: 0,   img: bouquetRight,    rotate: 0,    label: "right" },
-  { angle: 45,  img: bouquetDiagonal, rotate: 45,   label: "bottom-right" },
-  { angle: 90,  img: bouquetTop,      rotate: 180,  label: "bottom" },
-  { angle: 135, img: bouquetDiagonal, rotate: 135,  label: "bottom-left" },
-  { angle: 180, img: bouquetLeft,     rotate: 0,    label: "left" },
-  { angle: 225, img: bouquetDiagonal, rotate: -45,  label: "top-left" },
-  { angle: 270, img: bouquetTop,      rotate: 0,    label: "top" },
-  { angle: 315, img: bouquetDiagonal, rotate: -135, label: "top-right" },
+  // Right side — top, middle, bottom
+  { angle: -30,  img: bouquetRight,    rotate: 15,   label: "right-top" },
+  { angle: 0,    img: bouquetDiagonal, rotate: 0,    label: "right-mid" },
+  { angle: 30,   img: bouquetRight,    rotate: -15,  label: "right-bottom" },
+  // Left side — top, middle, bottom
+  { angle: 150,  img: bouquetLeft,     rotate: 15,   label: "left-bottom" },
+  { angle: 180,  img: bouquetDiagonal, rotate: 0,    label: "left-mid" },
+  { angle: 210,  img: bouquetLeft,     rotate: -15,  label: "left-top" },
 ];
 
 const BouquetOnCircle = ({
@@ -66,7 +65,7 @@ const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
         rotate={b.rotate}
         radius={radius}
         size={size}
-        delay={0.3 + i * 0.1}
+        delay={0.3 + i * 0.12}
       />
     ))}
   </>
@@ -92,18 +91,18 @@ const HeroSection = () => {
           {/* Radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* Bouquets around the circle — responsive */}
+          {/* Bouquets on circle border — 3 left, 3 right */}
           <div className="block sm:hidden">
-            <CircleBouquets radius={150} size={80} />
+            <CircleBouquets radius={155} size={75} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleBouquets radius={230} size={110} />
+            <CircleBouquets radius={235} size={105} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleBouquets radius={310} size={140} />
+            <CircleBouquets radius={315} size={135} />
           </div>
           <div className="hidden lg:block">
-            <CircleBouquets radius={360} size={160} />
+            <CircleBouquets radius={365} size={155} />
           </div>
         </div>
 
