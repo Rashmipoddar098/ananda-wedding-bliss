@@ -11,7 +11,6 @@ const bouquetPositions = [
   { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
   { angle: 164, img: bouquetDiagonal, rotate: -16, label: "left-5",   radiusFactor: 1 },
   { angle: 172, img: bouquetLeft,     rotate: -8,  label: "left-6",   radiusFactor: 1 },
-  { angle: 180, img: bouquetRight,    rotate: 0,   label: "left-7",   radiusFactor: 1 },
   { angle: 188, img: bouquetLeft,     rotate: 8,   label: "left-8",   radiusFactor: 1 },
   { angle: 196, img: bouquetDiagonal, rotate: 16,  label: "left-9",   radiusFactor: 1 },
   { angle: 204, img: bouquetLeft,     rotate: 24,  label: "left-10",  radiusFactor: 1 },
