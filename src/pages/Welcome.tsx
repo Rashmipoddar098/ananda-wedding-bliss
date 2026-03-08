@@ -8,7 +8,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center gradient-wedding overflow-hidden px-4">
+    <div className="relative min-h-screen flex flex-col items-center justify-center hero-bg overflow-hidden px-4">
       <FloatingPetals />
       
       {/* Top mandala border */}
