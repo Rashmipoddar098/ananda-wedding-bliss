@@ -167,7 +167,7 @@ const HeroSection = () => {
             <img
               src={coupleImg}
               alt="Ananya and Rahul performing wedding rituals around the sacred fire"
-              className="w-28 sm:w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
+              className="w-24 xs:w-28 sm:w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
             />
           </div>
         </motion.div>
@@ -178,7 +178,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="font-body text-sm sm:text-lg md:text-xl text-muted-foreground mt-2 sm:mt-4 z-10 tracking-wide"
+          className="font-body text-xs xs:text-sm sm:text-lg md:text-xl text-muted-foreground mt-2 sm:mt-4 z-10 tracking-wide"
         >
           12 February 2026 • Jaipur, Rajasthan
         </motion.p>
