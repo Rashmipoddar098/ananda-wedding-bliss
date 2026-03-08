@@ -23,6 +23,36 @@ const HeroSection = () => {
           {/* Radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
+          {/* === Flowers on all 4 sides === */}
+          {/* Top flower arc */}
+          <motion.img
+            src={flowerTop}
+            alt=""
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="absolute drop-shadow-lg
+              w-[200px] -top-[8px]
+              sm:w-[300px] sm:-top-[12px]
+              md:w-[420px] md:-top-[18px]
+              lg:w-[500px] lg:-top-[22px]"
+          />
+
+          {/* Bottom flower arc (flipped) */}
+          <motion.img
+            src={flowerBottom}
+            alt=""
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="absolute rotate-180 drop-shadow-lg
+              w-[200px] -bottom-[8px]
+              sm:w-[300px] sm:-bottom-[12px]
+              md:w-[420px] md:-bottom-[18px]
+              lg:w-[500px] lg:-bottom-[22px]"
+          />
 
           {/* Left vine */}
           <motion.img
@@ -33,10 +63,10 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.6 }}
             viewport={{ once: true }}
             className="absolute drop-shadow-lg
-              h-[180px] -left-[15px]
-              sm:h-[280px] sm:-left-[22px]
-              md:h-[380px] md:-left-[30px]
-              lg:h-[440px] lg:-left-[35px]"
+              h-[160px] -left-[10px]
+              sm:h-[250px] sm:-left-[16px]
+              md:h-[340px] md:-left-[22px]
+              lg:h-[400px] lg:-left-[28px]"
           />
 
           {/* Right vine (mirrored) */}
@@ -48,10 +78,10 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
             className="absolute -scale-x-100 drop-shadow-lg
-              h-[180px] -right-[15px]
-              sm:h-[280px] sm:-right-[22px]
-              md:h-[380px] md:-right-[30px]
-              lg:h-[440px] lg:-right-[35px]"
+              h-[160px] -right-[10px]
+              sm:h-[250px] sm:-right-[16px]
+              md:h-[340px] md:-right-[22px]
+              lg:h-[400px] lg:-right-[28px]"
           />
         </div>
 
