@@ -1,12 +1,107 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
+import bouquetLeft from "@/assets/floral-bouquet-left.png";
+import bouquetRight from "@/assets/floral-bouquet-right.png";
+import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
+
+// Full bouquet positions for larger screens
+const bouquetPositions = [
+  { angle: 140, img: bouquetLeft,     rotate: -40, label: "left-2",   radiusFactor: 1 },
+  { angle: 148, img: bouquetDiagonal, rotate: -32, label: "left-3",   radiusFactor: 1 },
+  { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
+  { angle: 164, img: bouquetDiagonal, rotate: -16, label: "left-5",   radiusFactor: 1 },
+  { angle: 172, img: bouquetLeft,     rotate: -8,  label: "left-6",   radiusFactor: 1 },
+  { angle: 188, img: bouquetLeft,     rotate: 8,   label: "left-8",   radiusFactor: 1 },
+  { angle: 196, img: bouquetDiagonal, rotate: 16,  label: "left-9",   radiusFactor: 1 },
+  { angle: 204, img: bouquetLeft,     rotate: 24,  label: "left-10",  radiusFactor: 1 },
+  { angle: 212, img: bouquetDiagonal, rotate: 32,  label: "left-11",  radiusFactor: 1 },
+  { angle: 220, img: bouquetLeft,     rotate: 40,  label: "left-12",  radiusFactor: 1 },
+];
+
+// Fewer bouquets for mobile to prevent overflow
+const mobileBouquetPositions = [
+  { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
+  { angle: 168, img: bouquetDiagonal, rotate: -12, label: "left-5",   radiusFactor: 1 },
+  { angle: 180, img: bouquetRight,    rotate: 0,   label: "left-7",   radiusFactor: 1 },
+  { angle: 192, img: bouquetLeft,     rotate: 12,  label: "left-8",   radiusFactor: 1 },
+  { angle: 204, img: bouquetDiagonal, rotate: 24,  label: "left-10",  radiusFactor: 1 },
+];
+
+const BouquetOnCircle = ({
+  angle,
+  img,
+  rotate,
+  radius,
+  size,
+  delay,
+  radiusFactor = 1,
+}: {
+  angle: number;
+  img: string;
+  rotate: number;
+  radius: number;
+  size: number;
+  delay: number;
+  radiusFactor?: number;
+}) => {
+  const rad = (angle * Math.PI) / 180;
+  const r = radius * radiusFactor;
+  const x = Math.cos(rad) * r;
+  const y = Math.sin(rad) * r;
+
+  const floatDuration = 4 + (delay * 2);
+  
+  return (
+    <motion.img
+      src={img}
+      alt=""
+      initial={{ opacity: 0, scale: 0.3 }}
+      animate={{
+        opacity: 1,
+        scale: [1, 1.06, 1, 0.97, 1],
+        y: [0, -8, 0, 5, 0],
+        rotate: [rotate, rotate + 4, rotate, rotate - 3, rotate],
+      }}
+      transition={{
+        opacity: { duration: 0.8, delay },
+        scale: { duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay },
+        y: { duration: floatDuration * 0.9, repeat: Infinity, ease: "easeInOut", delay },
+        rotate: { duration: floatDuration * 1.1, repeat: Infinity, ease: "easeInOut", delay },
+      }}
+      className="absolute object-contain drop-shadow-xl pointer-events-none"
+      style={{
+        width: size,
+        height: size,
+        left: `calc(50% + ${x}px)`,
+        top: `calc(50% + ${y}px)`,
+      }}
+    />
+  );
+};
+
+const CircleBouquets = ({ radius, size, positions }: { radius: number; size: number; positions: typeof bouquetPositions }) => (
+  <>
+    {positions.map((b, i) => (
+      <BouquetOnCircle
+        key={b.label}
+        angle={b.angle}
+        img={b.img}
+        rotate={b.rotate}
+        radius={radius}
+        size={size}
+        delay={0.3 + i * 0.12}
+        radiusFactor={b.radiusFactor}
+      />
+    ))}
+  </>
+);
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-2 xs:px-3 sm:px-4 py-12 xs:py-16 sm:py-20 overflow-hidden hero-bg">
       <div className="relative flex flex-col items-center justify-center z-20">
 
-        {/* Ring container */}
+        {/* Ring + Bouquets container */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           {/* Outer ring */}
           <div className="w-[240px] h-[240px] xs:w-[300px] xs:h-[300px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
@@ -20,6 +115,23 @@ const HeroSection = () => {
           <div className="w-[175px] h-[175px] xs:w-[220px] xs:h-[220px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
           {/* Radial glow */}
           <div className="w-[210px] h-[210px] xs:w-[260px] xs:h-[260px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5" />
+
+          {/* Bouquets — fewer & smaller on mobile, full set on larger screens */}
+          <div className="block xs:hidden">
+            <CircleBouquets radius={105} size={42} positions={mobileBouquetPositions} />
+          </div>
+          <div className="hidden xs:block sm:hidden">
+            <CircleBouquets radius={132} size={55} positions={mobileBouquetPositions} />
+          </div>
+          <div className="hidden sm:block md:hidden">
+            <CircleBouquets radius={235} size={105} positions={bouquetPositions} />
+          </div>
+          <div className="hidden md:block lg:hidden">
+            <CircleBouquets radius={315} size={135} positions={bouquetPositions} />
+          </div>
+          <div className="hidden lg:block">
+            <CircleBouquets radius={365} size={155} positions={bouquetPositions} />
+          </div>
         </div>
 
         {/* "Together Forever" */}
