@@ -4,7 +4,7 @@ import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
-// 3 bouquets on left side (angles: 150°, 180°, 210°) and 3 on right (330°, 0°, 30°)
+// Full bouquet positions for larger screens
 const bouquetPositions = [
   { angle: 140, img: bouquetDiagonal, rotate: -40, label: "left-2",   radiusFactor: 1 },
   { angle: 148, img: bouquetDiagonal, rotate: -32, label: "left-3",   radiusFactor: 1 },
@@ -17,6 +17,15 @@ const bouquetPositions = [
   { angle: 204, img: bouquetLeft,     rotate: 24,  label: "left-10",  radiusFactor: 1 },
   { angle: 212, img: bouquetDiagonal, rotate: 32,  label: "left-11",  radiusFactor: 1 },
   { angle: 220, img: bouquetDiagonal, rotate: 40,  label: "left-12",  radiusFactor: 1 },
+];
+
+// Fewer bouquets for mobile to prevent overflow
+const mobileBouquetPositions = [
+  { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
+  { angle: 168, img: bouquetDiagonal, rotate: -12, label: "left-5",   radiusFactor: 1 },
+  { angle: 180, img: bouquetRight,    rotate: 0,   label: "left-7",   radiusFactor: 1 },
+  { angle: 192, img: bouquetLeft,     rotate: 12,  label: "left-8",   radiusFactor: 1 },
+  { angle: 204, img: bouquetDiagonal, rotate: 24,  label: "left-10",  radiusFactor: 1 },
 ];
 
 const BouquetOnCircle = ({
@@ -61,9 +70,9 @@ const BouquetOnCircle = ({
   );
 };
 
-const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
+const CircleBouquets = ({ radius, size, positions }: { radius: number; size: number; positions: typeof bouquetPositions }) => (
   <>
-    {bouquetPositions.map((b, i) => (
+    {positions.map((b, i) => (
       <BouquetOnCircle
         key={b.label}
         angle={b.angle}
@@ -80,36 +89,36 @@ const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-2 sm:px-4 py-16 sm:py-20 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center z-20">
 
         {/* Ring + Bouquets container */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           {/* Outer ring */}
-          <div className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
+          <div className="w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
           {/* Main shining ring */}
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-            className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
+            className="w-[240px] h-[240px] xs:w-[280px] xs:h-[280px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute hero-circle-shine"
           />
           {/* Inner ring */}
-          <div className="w-[250px] h-[250px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
+          <div className="w-[200px] h-[200px] xs:w-[240px] xs:h-[240px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
           {/* Radial glow */}
-          <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
+          <div className="w-[240px] h-[240px] xs:w-[280px] xs:h-[280px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* Bouquets on circle border — 3 left, 3 right */}
+          {/* Bouquets — fewer on mobile, full set on larger screens */}
           <div className="block sm:hidden">
-            <CircleBouquets radius={155} size={75} />
+            <CircleBouquets radius={125} size={55} positions={mobileBouquetPositions} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleBouquets radius={235} size={105} />
+            <CircleBouquets radius={235} size={105} positions={bouquetPositions} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleBouquets radius={315} size={135} />
+            <CircleBouquets radius={315} size={135} positions={bouquetPositions} />
           </div>
           <div className="hidden lg:block">
-            <CircleBouquets radius={365} size={155} />
+            <CircleBouquets radius={365} size={155} positions={bouquetPositions} />
           </div>
         </div>
 
@@ -119,7 +128,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="font-script text-xl sm:text-2xl md:text-3xl text-gold mb-1 sm:mb-2 z-10"
+          className="font-script text-lg sm:text-2xl md:text-3xl text-gold mb-1 sm:mb-2 z-10"
         >
           Together Forever
         </motion.p>
@@ -132,13 +141,13 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="text-center z-10 mb-2 sm:mb-4"
         >
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
+          <h1 className="font-display text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
             Ananya
           </h1>
-          <span className="font-script text-gold text-2xl sm:text-3xl md:text-4xl block my-0 sm:my-1">
+          <span className="font-script text-gold text-xl sm:text-3xl md:text-4xl block my-0 sm:my-1">
             &
           </span>
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
+          <h1 className="font-display text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
             Rahul
           </h1>
         </motion.div>
@@ -155,7 +164,7 @@ const HeroSection = () => {
             <img
               src={coupleImg}
               alt="Ananya and Rahul performing wedding rituals around the sacred fire"
-              className="w-36 sm:w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
+              className="w-28 sm:w-56 md:w-72 lg:w-80 object-contain drop-shadow-2xl"
             />
           </div>
         </motion.div>
