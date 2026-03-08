@@ -53,10 +53,22 @@ const BouquetOnCircle = ({
     <motion.img
       src={img}
       alt=""
-      initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay }}
+      initial={{ opacity: 0, scale: 0.3, rotate: rotate - 20 }}
+      whileInView={{ opacity: 1, scale: 1, rotate }}
+      transition={{ duration: 1, delay, type: "spring", stiffness: 80 }}
       viewport={{ once: true }}
+      animate={{
+        y: [0, -6, 0, 4, 0],
+        rotate: [rotate, rotate + 3, rotate, rotate - 2, rotate],
+        scale: [1, 1.05, 1, 0.97, 1],
+      }}
+      // @ts-ignore
+      transition={{
+        duration: 1, delay, type: "spring", stiffness: 80,
+        y: { duration: 4 + delay * 0.5, repeat: Infinity, ease: "easeInOut" },
+        rotate: { duration: 5 + delay * 0.5, repeat: Infinity, ease: "easeInOut" },
+        scale: { duration: 6 + delay * 0.3, repeat: Infinity, ease: "easeInOut" },
+      }}
       className="absolute object-contain drop-shadow-xl pointer-events-none"
       style={{
         width: size,
