@@ -6,9 +6,6 @@ import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
 // 3 bouquets on left side (angles: 150°, 180°, 210°) and 3 on right (330°, 0°, 30°)
 const bouquetPositions = [
-  { angle: 0,   img: bouquetRight,    rotate: 0,   label: "right-mid",  radiusFactor: 1 },
-  { angle: 30,  img: bouquetDiagonal, rotate: 30,  label: "right-top",  radiusFactor: 1 },
-  { angle: 330, img: bouquetDiagonal, rotate: -30, label: "right-bot",  radiusFactor: 1 },
   { angle: 180, img: bouquetLeft,     rotate: 0,   label: "left-mid",   radiusFactor: 1 },
   { angle: 150, img: bouquetDiagonal, rotate: -30, label: "left-top",   radiusFactor: 1 },
   { angle: 210, img: bouquetDiagonal, rotate: 30,  label: "left-bot",   radiusFactor: 1 },
