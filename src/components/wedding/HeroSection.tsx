@@ -1,34 +1,33 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
-import flower1 from "@/assets/flower-cluster-1.png";
-import flower2 from "@/assets/flower-cluster-2.png";
-import flower3 from "@/assets/flower-cluster-3.png";
 import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
+import bouquetTop from "@/assets/floral-bouquet-top.png";
+import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
-// Flowers placed at angles around the circle, each rotated tangent to the curve
-const flowers = [
-  { angle: 0, img: flower1, rotateImg: 0 },
-  { angle: 45, img: flower3, rotateImg: 45 },
-  { angle: 90, img: flower2, rotateImg: 90 },
-  { angle: 135, img: flower1, rotateImg: 135 },
-  { angle: 180, img: flower3, rotateImg: 180 },
-  { angle: 225, img: flower2, rotateImg: 225 },
-  { angle: 270, img: flower1, rotateImg: 270 },
-  { angle: 315, img: flower3, rotateImg: 315 },
+// 8 bouquet positions around the circle (angle in degrees, 0 = right, 90 = bottom)
+const bouquetPositions = [
+  { angle: 0,   img: bouquetRight,    rotate: 0,    label: "right" },
+  { angle: 45,  img: bouquetDiagonal, rotate: 45,   label: "bottom-right" },
+  { angle: 90,  img: bouquetTop,      rotate: 180,  label: "bottom" },
+  { angle: 135, img: bouquetDiagonal, rotate: 135,  label: "bottom-left" },
+  { angle: 180, img: bouquetLeft,     rotate: 0,    label: "left" },
+  { angle: 225, img: bouquetDiagonal, rotate: -45,  label: "top-left" },
+  { angle: 270, img: bouquetTop,      rotate: 0,    label: "top" },
+  { angle: 315, img: bouquetDiagonal, rotate: -135, label: "top-right" },
 ];
 
-const FlowerOnCircle = ({
+const BouquetOnCircle = ({
   angle,
   img,
-  rotateImg,
+  rotate,
   radius,
   size,
   delay,
 }: {
   angle: number;
   img: string;
-  rotateImg: number;
+  rotate: number;
   radius: number;
   size: number;
   delay: number;
@@ -41,26 +40,34 @@ const FlowerOnCircle = ({
     <motion.img
       src={img}
       alt=""
-      initial={{ opacity: 0, scale: 0 }}
+      initial={{ opacity: 0, scale: 0.5 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 0.8, delay }}
       viewport={{ once: true }}
-      className="absolute object-contain drop-shadow-lg pointer-events-none"
+      className="absolute object-contain drop-shadow-xl pointer-events-none"
       style={{
         width: size,
         height: size,
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
-        transform: `translate(-50%, -50%) rotate(${rotateImg}deg)`,
+        transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
       }}
     />
   );
 };
 
-const CircleFlowers = ({ radius, size }: { radius: number; size: number }) => (
+const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
   <>
-    {flowers.map((f, i) => (
-      <FlowerOnCircle key={f.angle} {...f} radius={radius} size={size} delay={0.5 + i * 0.1} />
+    {bouquetPositions.map((b, i) => (
+      <BouquetOnCircle
+        key={b.label}
+        angle={b.angle}
+        img={b.img}
+        rotate={b.rotate}
+        radius={radius}
+        size={size}
+        delay={0.3 + i * 0.1}
+      />
     ))}
   </>
 );
@@ -70,7 +77,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center z-20">
 
-        {/* Ring + Flowers container */}
+        {/* Ring + Bouquets container */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           {/* Outer ring */}
           <div className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
@@ -85,53 +92,19 @@ const HeroSection = () => {
           {/* Radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* Flowers around the circle — responsive */}
+          {/* Bouquets around the circle — responsive */}
           <div className="block sm:hidden">
-            <CircleFlowers radius={120} size={50} />
+            <CircleBouquets radius={150} size={80} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleFlowers radius={190} size={65} />
+            <CircleBouquets radius={230} size={110} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleFlowers radius={260} size={80} />
+            <CircleBouquets radius={310} size={140} />
           </div>
           <div className="hidden lg:block">
-            <CircleFlowers radius={305} size={95} />
-
-          {/* Floral Bouquet - Left */}
-          <motion.img
-            src={bouquetLeft}
-            alt=""
-            initial={{ opacity: 0, x: -40, scale: 0.8 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="absolute pointer-events-none z-20 
-              w-24 -left-8 top-1/2 -translate-y-1/2
-              sm:w-36 sm:-left-12
-              md:w-48 md:-left-16
-              lg:w-56 lg:-left-20
-              animate-float drop-shadow-xl"
-            style={{ animationDelay: "0.5s" }}
-          />
-
-          {/* Floral Bouquet - Right */}
-          <motion.img
-            src={bouquetRight}
-            alt=""
-            initial={{ opacity: 0, x: 40, scale: 0.8 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="absolute pointer-events-none z-20
-              w-24 -right-8 top-1/2 -translate-y-1/2
-              sm:w-36 sm:-right-12
-              md:w-48 md:-right-16
-              lg:w-56 lg:-right-20
-              animate-float drop-shadow-xl"
-            style={{ animationDelay: "1.5s" }}
-          />
-        </div>
+            <CircleBouquets radius={360} size={160} />
+          </div>
         </div>
 
         {/* "Together Forever" */}
