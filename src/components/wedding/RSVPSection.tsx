@@ -107,7 +107,7 @@ const RSVPSection = () => {
                 <textarea
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background font-body text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gold/20 bg-maroon/30 font-body text-gold-light focus:outline-none focus:ring-2 focus:ring-gold/50 resize-none placeholder:text-gold-light/40"
                   rows={3}
                   placeholder="Write your wishes..."
                   maxLength={500}
