@@ -124,19 +124,19 @@ const HeroSection = () => {
 
           {/* Bouquets on the circle */}
           <div className="block xs:hidden">
-            <CircleBouquets radius={105} size={34} positions={mobileBouquetPositions} />
+            <CircleBouquets radius={105} size={24} positions={mobileBouquetPositions} />
           </div>
           <div className="hidden xs:block sm:hidden">
-            <CircleBouquets radius={132} size={44} positions={mobileBouquetPositions} />
+            <CircleBouquets radius={132} size={32} positions={mobileBouquetPositions} />
           </div>
           <div className="hidden sm:block md:hidden">
-            <CircleBouquets radius={232} size={80} positions={bouquetPositions} />
+            <CircleBouquets radius={232} size={55} positions={bouquetPositions} />
           </div>
           <div className="hidden md:block lg:hidden">
-            <CircleBouquets radius={312} size={105} positions={bouquetPositions} />
+            <CircleBouquets radius={312} size={75} positions={bouquetPositions} />
           </div>
           <div className="hidden lg:block">
-            <CircleBouquets radius={362} size={120} positions={bouquetPositions} />
+            <CircleBouquets radius={362} size={85} positions={bouquetPositions} />
           </div>
         </div>
 
