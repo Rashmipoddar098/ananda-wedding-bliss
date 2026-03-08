@@ -69,6 +69,7 @@ const CircleBouquets = ({ radius, size }: { radius: number; size: number }) => (
         rotate={b.rotate}
         radius={radius}
         size={size}
+        delay={0.3 + i * 0.12}
         radiusFactor={b.radiusFactor}
       />
     ))}
