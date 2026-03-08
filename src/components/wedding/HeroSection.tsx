@@ -131,7 +131,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="font-script text-lg sm:text-2xl md:text-3xl text-gold mb-1 sm:mb-2 z-10"
+          className="font-script text-base xs:text-lg sm:text-2xl md:text-3xl text-gold mb-1 sm:mb-2 z-10"
         >
           Together Forever
         </motion.p>
