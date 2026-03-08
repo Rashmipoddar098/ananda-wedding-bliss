@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
-import flowerTop from "@/assets/flower-arc-top.png";
-import flowerBottom from "@/assets/flower-arc-bottom.png";
 import flowerSide from "@/assets/flower-vine-side.png";
 
 const HeroSection = () => {
