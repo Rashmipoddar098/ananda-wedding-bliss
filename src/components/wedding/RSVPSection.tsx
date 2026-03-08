@@ -62,7 +62,7 @@ const RSVPSection = () => {
               </div>
 
               <div>
-                <label className="font-display text-sm font-semibold text-primary block mb-2">
+                <label className="font-display text-sm font-semibold text-gold block mb-2">
                   Number of Guests
                 </label>
                 <select
