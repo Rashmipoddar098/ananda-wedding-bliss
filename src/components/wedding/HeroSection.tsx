@@ -120,7 +120,6 @@ const HeroSection = () => {
           <div className="hidden lg:block">
             <CircleBouquets radius={365} size={155} positions={bouquetPositions} />
           </div>
-          </div>
         </div>
 
         {/* "Together Forever" */}
