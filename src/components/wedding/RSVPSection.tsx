@@ -55,7 +55,7 @@ const RSVPSection = () => {
                   type="text"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background font-body text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50"
+                  className="w-full px-4 py-3 rounded-lg border border-gold/20 bg-maroon/30 font-body text-gold-light focus:outline-none focus:ring-2 focus:ring-gold/50 placeholder:text-gold-light/40"
                   placeholder="Enter your full name"
                   maxLength={100}
                 />
