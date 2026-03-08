@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
-import bouquetLeft from "@/assets/floral-bouquet-left.png";
-import bouquetRight from "@/assets/floral-bouquet-right.png";
-import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
+
+
 
 // Full bouquet positions for larger screens
 const bouquetPositions = [
