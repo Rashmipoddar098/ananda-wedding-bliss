@@ -4,28 +4,31 @@ import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
-// Full bouquet positions for larger screens
-const bouquetPositions = [
-  { angle: 140, img: bouquetLeft,     rotate: -40, label: "left-2",   radiusFactor: 1 },
-  { angle: 148, img: bouquetDiagonal, rotate: -32, label: "left-3",   radiusFactor: 1 },
-  { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
-  { angle: 164, img: bouquetDiagonal, rotate: -16, label: "left-5",   radiusFactor: 1 },
-  { angle: 172, img: bouquetLeft,     rotate: -8,  label: "left-6",   radiusFactor: 1 },
-  { angle: 188, img: bouquetLeft,     rotate: 8,   label: "left-8",   radiusFactor: 1 },
-  { angle: 196, img: bouquetDiagonal, rotate: 16,  label: "left-9",   radiusFactor: 1 },
-  { angle: 204, img: bouquetLeft,     rotate: 24,  label: "left-10",  radiusFactor: 1 },
-  { angle: 212, img: bouquetDiagonal, rotate: 32,  label: "left-11",  radiusFactor: 1 },
-  { angle: 220, img: bouquetLeft,     rotate: 40,  label: "left-12",  radiusFactor: 1 },
-];
+// Full circle bouquets at equal spacing (every 20 degrees = 18 bouquets)
+const bouquetPositions = Array.from({ length: 18 }, (_, i) => {
+  const angle = i * 20;
+  const imgs = [bouquetLeft, bouquetDiagonal, bouquetRight];
+  return {
+    angle,
+    img: imgs[i % 3],
+    rotate: angle - 180,
+    label: `pos-${i}`,
+    radiusFactor: 1,
+  };
+});
 
-// Fewer bouquets for mobile to prevent overflow
-const mobileBouquetPositions = [
-  { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
-  { angle: 168, img: bouquetDiagonal, rotate: -12, label: "left-5",   radiusFactor: 1 },
-  { angle: 180, img: bouquetRight,    rotate: 0,   label: "left-7",   radiusFactor: 1 },
-  { angle: 192, img: bouquetLeft,     rotate: 12,  label: "left-8",   radiusFactor: 1 },
-  { angle: 204, img: bouquetDiagonal, rotate: 24,  label: "left-10",  radiusFactor: 1 },
-];
+// Fewer bouquets for mobile (every 36 degrees = 10 bouquets)
+const mobileBouquetPositions = Array.from({ length: 10 }, (_, i) => {
+  const angle = i * 36;
+  const imgs = [bouquetLeft, bouquetDiagonal, bouquetRight];
+  return {
+    angle,
+    img: imgs[i % 3],
+    rotate: angle - 180,
+    label: `mob-${i}`,
+    radiusFactor: 1,
+  };
+});
 
 const BouquetOnCircle = ({
   angle,
