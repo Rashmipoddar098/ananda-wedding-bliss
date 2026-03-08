@@ -87,7 +87,7 @@ const HeroSection = () => {
         >
           {/* Outer ring */}
           <div
-            className="rounded-full absolute border border-gold/15"
+            className="rounded-full absolute border border-primary/15"
             style={{ width: sizes.outerRing, height: sizes.outerRing }}
           />
           {/* Main shining ring */}
