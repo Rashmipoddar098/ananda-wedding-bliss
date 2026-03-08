@@ -24,6 +24,7 @@ const BouquetOnCircle = ({
   radius,
   size,
   delay,
+  radiusFactor = 1,
 }: {
   angle: number;
   img: string;
@@ -31,7 +32,10 @@ const BouquetOnCircle = ({
   radius: number;
   size: number;
   delay: number;
+  radiusFactor?: number;
 }) => {
+  const rad = (angle * Math.PI) / 180;
+  const r = radius * radiusFactor;
   const rad = (angle * Math.PI) / 180;
   const x = Math.cos(rad) * radius;
   const y = Math.sin(rad) * radius;
