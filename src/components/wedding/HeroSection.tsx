@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
-import flowerTop from "@/assets/flower-arc-top.png";
-import flowerBottom from "@/assets/flower-arc-bottom.png";
 import flowerSide from "@/assets/flower-vine-side.png";
 
 const HeroSection = () => {
@@ -24,38 +22,6 @@ const HeroSection = () => {
           {/* Radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
 
-          {/* === Flower garlands around the ring === */}
-          {/* Top arc */}
-          <motion.img
-            src={flowerTop}
-            alt=""
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="absolute drop-shadow-lg
-              w-[220px] -top-[20px]
-              sm:w-[340px] sm:-top-[30px]
-              md:w-[460px] md:-top-[40px]
-              lg:w-[530px] lg:-top-[45px]"
-            style={{ top: undefined }}
-          />
-          {/* We use responsive classes, so override inline top */}
-
-          {/* Bottom arc (flipped) */}
-          <motion.img
-            src={flowerBottom}
-            alt=""
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            viewport={{ once: true }}
-            className="absolute rotate-180 drop-shadow-lg
-              w-[220px] -bottom-[20px]
-              sm:w-[340px] sm:-bottom-[30px]
-              md:w-[460px] md:-bottom-[40px]
-              lg:w-[530px] lg:-bottom-[45px]"
-          />
 
           {/* Left vine */}
           <motion.img
