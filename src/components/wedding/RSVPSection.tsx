@@ -48,7 +48,7 @@ const RSVPSection = () => {
               className="bg-maroon/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-wedding border border-gold/20 space-y-5"
             >
               <div>
-                <label className="font-display text-sm font-semibold text-primary block mb-2">
+                <label className="font-display text-sm font-semibold text-gold block mb-2">
                   Full Name *
                 </label>
                 <input
