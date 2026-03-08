@@ -57,29 +57,31 @@ const BouquetOnCircle = ({
   const floatDuration = 4 + (delay * 2);
   
   return (
-    <motion.img
-      src={img}
-      alt=""
-      initial={{ opacity: 0, scale: 0.3 }}
-      animate={{
-        opacity: 1,
-        scale: [1, 1.03, 1, 0.98, 1],
-        rotate: [rotate, rotate + 2, rotate, rotate - 2, rotate],
-      }}
-      transition={{
-        opacity: { duration: 0.8, delay },
-        scale: { duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay },
-        rotate: { duration: floatDuration * 1.1, repeat: Infinity, ease: "easeInOut", delay },
-      }}
-      className="absolute object-contain drop-shadow-xl pointer-events-none"
+    <div
+      className="absolute pointer-events-none"
       style={{
         width: size,
         height: size,
-        left: `calc(50% + ${x}px)`,
-        top: `calc(50% + ${y}px)`,
-        transform: 'translate(-50%, -50%)',
+        left: `calc(50% + ${x}px - ${size / 2}px)`,
+        top: `calc(50% + ${y}px - ${size / 2}px)`,
       }}
-    />
+    >
+      <motion.img
+        src={img}
+        alt=""
+        initial={{ opacity: 0, scale: 0.3 }}
+        animate={{
+          opacity: 1,
+          scale: [1, 1.03, 1, 0.98, 1],
+        }}
+        transition={{
+          opacity: { duration: 0.8, delay },
+          scale: { duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay },
+        }}
+        className="w-full h-full object-contain drop-shadow-xl"
+        style={{ rotate: `${rotate}deg` }}
+      />
+    </div>
   );
 };
 
