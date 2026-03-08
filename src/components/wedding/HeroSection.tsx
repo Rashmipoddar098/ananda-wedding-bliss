@@ -77,7 +77,7 @@ const HeroSection = () => {
   const sizes = useHeroSize();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-2 py-12 sm:py-20 overflow-hidden hero-bg">
+    <section className="relative min-h-screen flex items-center justify-center px-2 py-12 sm:py-20 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center z-20">
 
         {/* Ring + Bouquets container */}
