@@ -46,7 +46,7 @@ const FamilyColumn = ({
 
   return (
     <div className="flex-1">
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-primary mb-6 text-center">
+      <h3 className="font-display text-2xl md:text-3xl font-bold text-gold mb-6 text-center">
         {title}
       </h3>
 
@@ -78,16 +78,16 @@ const FamilyColumn = ({
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-background rounded-2xl p-6 md:p-8 max-w-md w-full max-h-[80vh] overflow-y-auto shadow-wedding border border-gold/20"
+              className="bg-maroon rounded-2xl p-6 md:p-8 max-w-md w-full max-h-[80vh] overflow-y-auto shadow-wedding border border-gold/20"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-6">
-                <h4 className="font-display text-xl font-bold text-primary">
+                <h4 className="font-display text-xl font-bold text-gold">
                   {title}
                 </h4>
                 <button
                   onClick={() => setShowAll(false)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-gold-light/60 hover:text-gold transition-colors"
                 >
                   <X size={24} />
                 </button>
@@ -106,13 +106,13 @@ const FamilyColumn = ({
 };
 
 const MemberCard = ({ member }: { member: FamilyMember }) => (
-  <div className="flex items-center gap-4 bg-background rounded-xl p-4 border border-gold/15 shadow-sm">
+  <div className="flex items-center gap-4 bg-maroon/40 backdrop-blur-sm rounded-xl p-4 border border-gold/15 shadow-sm">
     <div className="w-12 h-12 rounded-full gradient-gold flex items-center justify-center text-primary-foreground font-display font-bold text-lg flex-shrink-0">
       {member.name.charAt(0)}
     </div>
     <div>
-      <p className="font-display font-semibold text-primary">{member.name}</p>
-      <p className="font-body text-sm text-muted-foreground">{member.relation}</p>
+      <p className="font-display font-semibold text-gold-light">{member.name}</p>
+      <p className="font-body text-sm text-gold-light/60">{member.relation}</p>
     </div>
   </div>
 );
@@ -129,7 +129,7 @@ const FamilySection = () => {
       >
         <div className="text-center mb-12">
           <p className="font-script text-3xl text-gold mb-2">Our Families</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light">
             The Two Families Becoming One
           </h2>
         </div>
@@ -140,7 +140,7 @@ const FamilySection = () => {
             keyMembers={brideFamilyKey}
             allMembers={brideFamilyAll}
           />
-          <div className="hidden md:block w-px bg-gold/20" />
+          <div className="hidden md:block w-px bg-gold/15" />
           <FamilyColumn
             title="Groom's Family"
             keyMembers={groomFamilyKey}

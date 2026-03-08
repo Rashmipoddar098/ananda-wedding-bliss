@@ -29,7 +29,7 @@ const CountdownSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-cream-dark">
+    <section className="py-20 px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ const CountdownSection = () => {
         className="max-w-3xl mx-auto text-center"
       >
         <p className="font-script text-3xl text-gold mb-2">Save the Date</p>
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-10">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light mb-10">
           Wedding Begins In
         </h2>
 
@@ -46,13 +46,13 @@ const CountdownSection = () => {
           {units.map((unit) => (
             <motion.div
               key={unit.label}
-              className="flex flex-col items-center bg-background rounded-xl p-2 sm:p-4 md:p-6 shadow-wedding min-w-[60px] sm:min-w-[70px] md:min-w-[100px] border border-gold/20"
+              className="flex flex-col items-center bg-maroon/40 backdrop-blur-sm rounded-xl p-2 sm:p-4 md:p-6 shadow-wedding min-w-[60px] sm:min-w-[70px] md:min-w-[100px] border border-gold/20"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary">
+              <span className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-gold">
                 {String(unit.value).padStart(2, "0")}
               </span>
-              <span className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mt-1">
+              <span className="font-body text-xs sm:text-sm md:text-base text-gold-light/60 mt-1">
                 {unit.label}
               </span>
             </motion.div>
