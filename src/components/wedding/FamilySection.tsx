@@ -78,16 +78,16 @@ const FamilyColumn = ({
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-background rounded-2xl p-6 md:p-8 max-w-md w-full max-h-[80vh] overflow-y-auto shadow-wedding border border-gold/20"
+              className="bg-maroon rounded-2xl p-6 md:p-8 max-w-md w-full max-h-[80vh] overflow-y-auto shadow-wedding border border-gold/20"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-6">
-                <h4 className="font-display text-xl font-bold text-primary">
+                <h4 className="font-display text-xl font-bold text-gold">
                   {title}
                 </h4>
                 <button
                   onClick={() => setShowAll(false)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-gold-light/60 hover:text-gold transition-colors"
                 >
                   <X size={24} />
                 </button>
