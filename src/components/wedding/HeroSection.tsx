@@ -6,9 +6,6 @@ import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
 // Full bouquet positions for larger screens
 const bouquetPositions = [
-  { angle: 124, img: bouquetDiagonal, rotate: -56, label: "left-0",   radiusFactor: 1 },
-  { angle: 132, img: bouquetLeft,     rotate: -48, label: "left-1",   radiusFactor: 1 },
-  { angle: 140, img: bouquetDiagonal, rotate: -40, label: "left-2",   radiusFactor: 1 },
   { angle: 148, img: bouquetDiagonal, rotate: -32, label: "left-3",   radiusFactor: 1 },
   { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
   { angle: 164, img: bouquetDiagonal, rotate: -16, label: "left-5",   radiusFactor: 1 },
