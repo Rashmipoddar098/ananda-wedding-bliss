@@ -52,13 +52,13 @@ const Welcome = () => {
         transition={{ duration: 1, delay: 0.6 }}
         className="text-center mb-6"
       >
-        <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gold-light tracking-wide">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary tracking-wide">
           Ananya
         </h1>
         <p className="font-script text-2xl sm:text-3xl md:text-4xl text-gold my-2 md:my-4">
           weds
         </p>
-        <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gold-light tracking-wide">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary tracking-wide">
           Rahul
         </h1>
       </motion.div>
