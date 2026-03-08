@@ -79,6 +79,7 @@ const BouquetOnCircle = ({
         height: size,
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
+        transform: 'translate(-50%, -50%)',
       }}
     />
   );
