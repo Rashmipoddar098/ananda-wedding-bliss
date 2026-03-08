@@ -49,21 +49,31 @@ const BouquetOnCircle = ({
   const x = Math.cos(rad) * r;
   const y = Math.sin(rad) * r;
 
+  const floatDuration = 4 + (delay * 2);
+  
   return (
     <motion.img
       src={img}
       alt=""
-      initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, scale: 0.3 }}
+      animate={{
+        opacity: 1,
+        scale: [1, 1.06, 1, 0.97, 1],
+        y: [0, -8, 0, 5, 0],
+        rotate: [rotate, rotate + 4, rotate, rotate - 3, rotate],
+      }}
+      transition={{
+        opacity: { duration: 0.8, delay },
+        scale: { duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay },
+        y: { duration: floatDuration * 0.9, repeat: Infinity, ease: "easeInOut", delay },
+        rotate: { duration: floatDuration * 1.1, repeat: Infinity, ease: "easeInOut", delay },
+      }}
       className="absolute object-contain drop-shadow-xl pointer-events-none"
       style={{
         width: size,
         height: size,
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
-        transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
       }}
     />
   );
