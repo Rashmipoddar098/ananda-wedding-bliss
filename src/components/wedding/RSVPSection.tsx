@@ -90,8 +90,8 @@ const RSVPSection = () => {
                       onClick={() => setForm({ ...form, attending: opt })}
                       className={`flex-1 py-3 rounded-lg font-display text-xs sm:text-sm border-2 transition-all ${
                         form.attending === opt
-                          ? "border-gold bg-gold/10 text-primary"
-                          : "border-input text-muted-foreground hover:border-gold/40"
+                          ? "border-gold bg-gold/10 text-gold"
+                          : "border-gold/20 text-gold-light/60 hover:border-gold/40"
                       }`}
                     >
                       {opt === "yes" ? "🎉 Yes, I'll be there!" : "😢 Sorry, can't make it"}
