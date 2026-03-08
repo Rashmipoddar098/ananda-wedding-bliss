@@ -4,9 +4,10 @@ import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
-// Full circle bouquets at equal spacing (every 20 degrees = 18 bouquets)
-const bouquetPositions = Array.from({ length: 18 }, (_, i) => {
-  const angle = i * 20;
+// Bouquets only on sides and bottom, skipping top (where names & couple are)
+// Skip angles 310-360 and 0-50 (top area) to keep names/couple visible
+const bouquetAngles = [60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300];
+const bouquetPositions = bouquetAngles.map((angle, i) => {
   const imgs = [bouquetLeft, bouquetDiagonal, bouquetRight];
   return {
     angle,
@@ -17,9 +18,9 @@ const bouquetPositions = Array.from({ length: 18 }, (_, i) => {
   };
 });
 
-// Fewer bouquets for mobile (every 36 degrees = 10 bouquets)
-const mobileBouquetPositions = Array.from({ length: 10 }, (_, i) => {
-  const angle = i * 36;
+// Mobile: fewer bouquets, same gap at top
+const mobileAngles = [70, 110, 150, 190, 230, 270, 300];
+const mobileBouquetPositions = mobileAngles.map((angle, i) => {
   const imgs = [bouquetLeft, bouquetDiagonal, bouquetRight];
   return {
     angle,
