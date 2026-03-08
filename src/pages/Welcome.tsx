@@ -68,7 +68,7 @@ const Welcome = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="font-body text-lg md:text-xl text-gold-light/70 text-center max-w-lg mb-10 leading-relaxed"
+        className="font-body text-lg md:text-xl text-muted-foreground text-center max-w-lg mb-10 leading-relaxed"
       >
         With the blessings of Lord Ganesha and our beloved families, we invite
         you to celebrate the union of two souls in love.
