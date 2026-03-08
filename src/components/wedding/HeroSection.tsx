@@ -1,58 +1,75 @@
 import { motion } from "framer-motion";
 import coupleImg from "@/assets/wedding-couple.png";
+import flower1 from "@/assets/flower-cluster-1.png";
+import flower2 from "@/assets/flower-cluster-2.png";
+import flower3 from "@/assets/flower-cluster-3.png";
 
-// Flowers placed around the ring at specific angles
+// Flower positions around the ring (angle in degrees)
 const ringFlowers = [
-  { angle: 0, emoji: "🌸", delay: 0 },
-  { angle: 45, emoji: "🌺", delay: 0.3 },
-  { angle: 90, emoji: "🌼", delay: 0.1 },
-  { angle: 135, emoji: "🌷", delay: 0.5 },
-  { angle: 180, emoji: "🌸", delay: 0.2 },
-  { angle: 225, emoji: "🌺", delay: 0.4 },
-  { angle: 270, emoji: "🌼", delay: 0.6 },
-  { angle: 315, emoji: "🌷", delay: 0.15 },
+  { angle: 0, img: flower1, rotate: 0 },
+  { angle: 60, img: flower3, rotate: 30 },
+  { angle: 120, img: flower2, rotate: -15 },
+  { angle: 180, img: flower1, rotate: 10 },
+  { angle: 240, img: flower3, rotate: -25 },
+  { angle: 300, img: flower2, rotate: 20 },
 ];
 
 const FlowerOnRing = ({
   angle,
-  emoji,
-  delay,
+  img,
+  rotate,
   radius,
   size,
+  delay,
 }: {
   angle: number;
-  emoji: string;
-  delay: number;
+  img: string;
+  rotate: number;
   radius: number;
-  size: string;
+  size: number;
+  delay: number;
 }) => {
   const rad = (angle * Math.PI) / 180;
   const x = Math.cos(rad) * radius;
   const y = Math.sin(rad) * radius;
 
   return (
-    <motion.span
+    <motion.img
+      src={img}
+      alt=""
       initial={{ opacity: 0, scale: 0 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay: 0.8 + delay }}
+      transition={{ duration: 0.7, delay }}
       viewport={{ once: true }}
-      animate={{ scale: [1, 1.15, 1] }}
-      className={`absolute ${size} flex items-center justify-center drop-shadow-md`}
+      className="absolute object-contain drop-shadow-lg pointer-events-none"
       style={{
+        width: size,
+        height: size,
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
-        transform: "translate(-50%, -50%)",
+        transform: `translate(-50%, -50%) rotate(${rotate}deg)`,
       }}
-    >
-      {emoji}
-    </motion.span>
+    />
   );
 };
+
+const ResponsiveFlowers = ({ radius, size }: { radius: number; size: number }) => (
+  <>
+    {ringFlowers.map((f, i) => (
+      <FlowerOnRing
+        key={f.angle}
+        {...f}
+        radius={radius}
+        size={size}
+        delay={0.6 + i * 0.12}
+      />
+    ))}
+  </>
+);
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-      {/* Central circle container — names + couple all inside */}
       <div className="relative flex flex-col items-center justify-center z-20">
         {/* Decorative circles with shine */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -68,38 +85,19 @@ const HeroSection = () => {
           <div className="w-[250px] h-[250px] sm:w-[390px] sm:h-[390px] md:w-[530px] md:h-[530px] lg:w-[620px] lg:h-[620px] rounded-full absolute hero-circle-inner" />
           {/* Soft radial glow */}
           <div className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute bg-gradient-to-b from-gold/5 via-transparent to-pastel-pink/10" />
-          {/* Sparkle dots on the ring */}
-          <motion.div
-            animate={{ opacity: [0.3, 1, 0.3] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] md:w-[620px] md:h-[620px] lg:w-[720px] lg:h-[720px] rounded-full absolute"
-            style={{
-              background:
-                "radial-gradient(circle at 20% 10%, hsl(var(--gold) / 0.4) 0%, transparent 3%), radial-gradient(circle at 85% 25%, hsl(var(--gold) / 0.3) 0%, transparent 2%), radial-gradient(circle at 10% 75%, hsl(var(--gold) / 0.35) 0%, transparent 2.5%), radial-gradient(circle at 90% 80%, hsl(var(--gold) / 0.3) 0%, transparent 2%)",
-            }}
-          />
 
-          {/* Flowers on the main ring — responsive radius */}
-          {/* Mobile: 150px, sm: 230px, md: 310px, lg: 360px */}
+          {/* Real flower clusters on ring — responsive */}
           <div className="block sm:hidden">
-            {ringFlowers.map((f) => (
-              <FlowerOnRing key={f.angle} {...f} radius={150} size="text-base" />
-            ))}
+            <ResponsiveFlowers radius={150} size={50} />
           </div>
           <div className="hidden sm:block md:hidden">
-            {ringFlowers.map((f) => (
-              <FlowerOnRing key={f.angle} {...f} radius={230} size="text-xl" />
-            ))}
+            <ResponsiveFlowers radius={230} size={70} />
           </div>
           <div className="hidden md:block lg:hidden">
-            {ringFlowers.map((f) => (
-              <FlowerOnRing key={f.angle} {...f} radius={310} size="text-2xl" />
-            ))}
+            <ResponsiveFlowers radius={310} size={90} />
           </div>
           <div className="hidden lg:block">
-            {ringFlowers.map((f) => (
-              <FlowerOnRing key={f.angle} {...f} radius={360} size="text-3xl" />
-            ))}
+            <ResponsiveFlowers radius={360} size={105} />
           </div>
         </div>
 
