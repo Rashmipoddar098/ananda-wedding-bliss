@@ -129,7 +129,7 @@ const FamilySection = () => {
       >
         <div className="text-center mb-12">
           <p className="font-script text-3xl text-gold mb-2">Our Families</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light">
             The Two Families Becoming One
           </h2>
         </div>
