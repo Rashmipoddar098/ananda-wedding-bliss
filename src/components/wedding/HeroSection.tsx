@@ -3,6 +3,8 @@ import coupleImg from "@/assets/wedding-couple.png";
 import flower1 from "@/assets/flower-cluster-1.png";
 import flower2 from "@/assets/flower-cluster-2.png";
 import flower3 from "@/assets/flower-cluster-3.png";
+import bouquetLeft from "@/assets/floral-bouquet-left.png";
+import bouquetRight from "@/assets/floral-bouquet-right.png";
 
 // Flowers placed at angles around the circle, each rotated tangent to the curve
 const flowers = [
