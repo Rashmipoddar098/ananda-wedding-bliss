@@ -8,13 +8,13 @@ const FlipNumber = ({ value, label }: { value: number; label: string }) => {
 
   return (
     <motion.div
-      className="flex flex-col items-center bg-maroon/40 backdrop-blur-sm rounded-xl p-2 sm:p-4 md:p-6 shadow-wedding min-w-[60px] sm:min-w-[70px] md:min-w-[100px] border border-gold/20 relative overflow-hidden"
-      whileHover={{ scale: 1.08, borderColor: "hsl(40, 70%, 50%)" }}
+      className="flex flex-col items-center bg-card/80 backdrop-blur-sm rounded-xl p-2 sm:p-4 md:p-6 shadow-wedding min-w-[60px] sm:min-w-[70px] md:min-w-[100px] border border-primary/15 relative overflow-hidden"
+      whileHover={{ scale: 1.08 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
       {/* Shimmer overlay */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/5 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent"
         animate={{ x: ["-100%", "200%"] }}
         transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
       />
@@ -27,21 +27,21 @@ const FlipNumber = ({ value, label }: { value: number; label: string }) => {
             animate={{ y: 0, opacity: 1, scale: 1, rotateX: 0 }}
             exit={{ y: 30, opacity: 0, scale: 0.8, rotateX: 90 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-gold block"
+            className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-primary block"
           >
             {display}
           </motion.span>
         </AnimatePresence>
       </div>
 
-      <span className="font-body text-xs sm:text-sm md:text-base text-gold-light/60 mt-1">
+      <span className="font-body text-xs sm:text-sm md:text-base text-muted-foreground mt-1">
         {label}
       </span>
 
       {/* Pulse ring on seconds */}
       {label === "Seconds" && (
         <motion.div
-          className="absolute inset-0 rounded-xl border-2 border-gold/20"
+          className="absolute inset-0 rounded-xl border-2 border-accent/20"
           animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0, 0.3] }}
           transition={{ duration: 1, repeat: Infinity }}
         />
@@ -91,7 +91,7 @@ const CountdownSection = () => {
         >
           Save the Date
         </motion.p>
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-gold-light mb-10">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-10">
           Wedding Begins In
         </h2>
 

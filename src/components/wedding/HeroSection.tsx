@@ -77,7 +77,7 @@ const HeroSection = () => {
   const sizes = useHeroSize();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-2 py-12 sm:py-20 overflow-hidden hero-bg">
+    <section className="relative min-h-screen flex items-center justify-center px-2 py-12 sm:py-20 overflow-hidden">
       <div className="relative flex flex-col items-center justify-center z-20">
 
         {/* Ring + Bouquets container */}
@@ -87,7 +87,7 @@ const HeroSection = () => {
         >
           {/* Outer ring */}
           <div
-            className="rounded-full absolute border border-gold/15"
+            className="rounded-full absolute border border-primary/15"
             style={{ width: sizes.outerRing, height: sizes.outerRing }}
           />
           {/* Main shining ring */}
@@ -104,7 +104,7 @@ const HeroSection = () => {
           />
           {/* Radial glow */}
           <div
-            className="rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5"
+            className="rounded-full absolute bg-gradient-to-b from-accent/10 via-transparent to-accent/5"
             style={{ width: sizes.shineRing, height: sizes.shineRing }}
           />
 
@@ -122,7 +122,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className={`font-script ${sizes.scriptSize} text-gold mb-1 sm:mb-2 z-10`}
+          className={`font-script ${sizes.scriptSize} text-gold mb-1 sm:mb-2 z-10 drop-shadow-sm`}
         >
           Together Forever
         </motion.p>
@@ -135,13 +135,13 @@ const HeroSection = () => {
           viewport={{ once: true }}
           className="text-center z-10 mb-2 sm:mb-4"
         >
-          <h1 className={`font-display ${sizes.nameSize} font-bold text-gold-light leading-tight drop-shadow-lg`}>
+          <h1 className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}>
             Ananya
           </h1>
           <span className={`font-script text-gold ${sizes.scriptSize} block my-0 sm:my-1`}>
             &amp;
           </span>
-          <h1 className={`font-display ${sizes.nameSize} font-bold text-gold-light leading-tight drop-shadow-lg`}>
+          <h1 className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}>
             Rahul
           </h1>
         </motion.div>
@@ -169,7 +169,7 @@ const HeroSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className={`font-body ${sizes.dateSize} text-gold-light/80 mt-2 sm:mt-4 z-10 tracking-wide`}
+          className={`font-body ${sizes.dateSize} text-muted-foreground mt-2 sm:mt-4 z-10 tracking-wide`}
         >
           8 May 2026 • Jaipur, Rajasthan
         </motion.p>
