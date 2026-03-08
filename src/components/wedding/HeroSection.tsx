@@ -4,7 +4,7 @@ import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 
-// 3 bouquets on left side (angles: 150°, 180°, 210°) and 3 on right (330°, 0°, 30°)
+// Full bouquet positions for larger screens
 const bouquetPositions = [
   { angle: 140, img: bouquetDiagonal, rotate: -40, label: "left-2",   radiusFactor: 1 },
   { angle: 148, img: bouquetDiagonal, rotate: -32, label: "left-3",   radiusFactor: 1 },
@@ -17,6 +17,15 @@ const bouquetPositions = [
   { angle: 204, img: bouquetLeft,     rotate: 24,  label: "left-10",  radiusFactor: 1 },
   { angle: 212, img: bouquetDiagonal, rotate: 32,  label: "left-11",  radiusFactor: 1 },
   { angle: 220, img: bouquetDiagonal, rotate: 40,  label: "left-12",  radiusFactor: 1 },
+];
+
+// Fewer bouquets for mobile to prevent overflow
+const mobileBouquetPositions = [
+  { angle: 156, img: bouquetLeft,     rotate: -24, label: "left-4",   radiusFactor: 1 },
+  { angle: 168, img: bouquetDiagonal, rotate: -12, label: "left-5",   radiusFactor: 1 },
+  { angle: 180, img: bouquetRight,    rotate: 0,   label: "left-7",   radiusFactor: 1 },
+  { angle: 192, img: bouquetLeft,     rotate: 12,  label: "left-8",   radiusFactor: 1 },
+  { angle: 204, img: bouquetDiagonal, rotate: 24,  label: "left-10",  radiusFactor: 1 },
 ];
 
 const BouquetOnCircle = ({
