@@ -104,7 +104,7 @@ const HeroSection = () => {
           />
           {/* Radial glow */}
           <div
-            className="rounded-full absolute bg-gradient-to-b from-gold/10 via-transparent to-gold/5"
+            className="rounded-full absolute bg-gradient-to-b from-accent/10 via-transparent to-accent/5"
             style={{ width: sizes.shineRing, height: sizes.shineRing }}
           />
 
