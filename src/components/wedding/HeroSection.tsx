@@ -69,7 +69,6 @@ const BouquetOnCircle = ({
       transition={{
         opacity: { duration: 0.8, delay },
         scale: { duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay },
-        y: { duration: floatDuration * 0.9, repeat: Infinity, ease: "easeInOut", delay },
         rotate: { duration: floatDuration * 1.1, repeat: Infinity, ease: "easeInOut", delay },
       }}
       className="absolute object-contain drop-shadow-xl pointer-events-none"
