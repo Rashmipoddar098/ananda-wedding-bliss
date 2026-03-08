@@ -13,12 +13,12 @@ const HeroSection = () => {
         className="text-center mb-8 z-20"
       >
         <p className="font-script text-2xl text-gold mb-2">Together Forever</p>
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary">
+        <h1 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-primary">
           Ananya{" "}
-          <span className="font-script text-gold text-4xl md:text-5xl">&</span>{" "}
+          <span className="font-script text-gold text-2xl sm:text-4xl md:text-5xl">&</span>{" "}
           Rahul
         </h1>
-        <p className="font-body text-xl md:text-2xl text-muted-foreground mt-4">
+        <p className="font-body text-base sm:text-xl md:text-2xl text-muted-foreground mt-3 md:mt-4 px-2">
           12 February 2026 • Jaipur, Rajasthan
         </p>
       </motion.div>
