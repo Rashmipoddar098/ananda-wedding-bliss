@@ -8,16 +8,8 @@ const HeroSection = () => {
       <div className="relative flex flex-col items-center justify-center z-20">
         {/* Decorative circles with shine */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          {/* Outer ornamental ring — slow spin + shimmer */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-            className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute"
-            style={{
-              border: "1px solid transparent",
-              borderImage: "linear-gradient(135deg, hsl(var(--gold) / 0.05), hsl(var(--gold) / 0.3), hsl(var(--gold) / 0.05)) 1",
-            }}
-          />
+          {/* Outer ornamental ring */}
+          <div className="w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] rounded-full absolute border border-gold/15" />
           {/* Main shining ring */}
           <motion.div
             animate={{ rotate: -360 }}
