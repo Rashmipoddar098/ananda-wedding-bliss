@@ -35,7 +35,7 @@ const HeroSection = () => {
           <img
             src={coupleImg}
             alt="Ananya and Rahul performing wedding rituals around the sacred fire"
-            className="w-72 md:w-96 lg:w-[28rem] object-contain drop-shadow-2xl"
+            className="w-48 sm:w-72 md:w-96 lg:w-[28rem] object-contain drop-shadow-2xl"
           />
         </div>
       </motion.div>
