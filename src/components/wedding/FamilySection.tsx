@@ -106,13 +106,13 @@ const FamilyColumn = ({
 };
 
 const MemberCard = ({ member }: { member: FamilyMember }) => (
-  <div className="flex items-center gap-4 bg-background rounded-xl p-4 border border-gold/15 shadow-sm">
+  <div className="flex items-center gap-4 bg-maroon/40 backdrop-blur-sm rounded-xl p-4 border border-gold/15 shadow-sm">
     <div className="w-12 h-12 rounded-full gradient-gold flex items-center justify-center text-primary-foreground font-display font-bold text-lg flex-shrink-0">
       {member.name.charAt(0)}
     </div>
     <div>
-      <p className="font-display font-semibold text-primary">{member.name}</p>
-      <p className="font-body text-sm text-muted-foreground">{member.relation}</p>
+      <p className="font-display font-semibold text-gold-light">{member.name}</p>
+      <p className="font-body text-sm text-gold-light/60">{member.relation}</p>
     </div>
   </div>
 );
