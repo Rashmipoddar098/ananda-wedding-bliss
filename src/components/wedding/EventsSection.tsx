@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Shirt, Sparkles, Heart } from "lucide-react";
+import { Calendar, Clock, MapPin, Shirt, Sparkles, Heart, ExternalLink } from "lucide-react";
 
 interface WeddingEvent {
   name: string;
@@ -7,6 +7,7 @@ interface WeddingEvent {
   time: string;
   dressCode: string;
   location: string;
+  mapQuery: string;
   emoji: string;
   color: string;
 }
