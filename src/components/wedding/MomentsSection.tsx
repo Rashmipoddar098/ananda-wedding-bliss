@@ -25,7 +25,7 @@ const moments: Moment[] = [
     title: "Together Forever",
     caption: "A love written in the stars",
     emoji: "💕",
-    span: "sm:col-span-2 sm:row-span-2",
+    span: "sm:col-span-2",
   },
   {
     img: momentHaldi,
