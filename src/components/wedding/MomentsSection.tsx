@@ -59,6 +59,11 @@ const moments: Moment[] = [
     title: "Vidaai",
     caption: "A tearful farewell, a beautiful beginning",
   },
+  {
+    img: momentBaraat,
+    title: "Baraat",
+    caption: "The grand arrival of the groom",
+  },
 ];
 
 const MomentsSection = () => {
