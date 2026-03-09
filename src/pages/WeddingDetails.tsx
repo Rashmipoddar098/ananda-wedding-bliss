@@ -4,6 +4,7 @@ import CountdownSection from "@/components/wedding/CountdownSection";
 import FamilySection from "@/components/wedding/FamilySection";
 import MomentsSection from "@/components/wedding/MomentsSection";
 import EventsSection from "@/components/wedding/EventsSection";
+import BlessingsSection from "@/components/wedding/BlessingsSection";
 import RSVPSection from "@/components/wedding/RSVPSection";
 import FloatingPetals from "@/components/FloatingPetals";
 
@@ -16,6 +17,7 @@ const WeddingDetails = () => {
       <FamilySection />
       <MomentsSection />
       <EventsSection />
+      <BlessingsSection />
       <RSVPSection />
       {/* Footer */}
       <motion.footer
