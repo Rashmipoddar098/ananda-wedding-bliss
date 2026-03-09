@@ -11,12 +11,9 @@ const WeddingDetails = () => {
     <div className="min-h-screen gradient-wedding relative">
       <FloatingPetals />
       <HeroSection />
-      <img src={mandalaImg} alt="" className="w-full opacity-15" />
       <CountdownSection />
       <FamilySection />
-      <img src={mandalaImg} alt="" className="w-full opacity-15 rotate-180" />
       <EventsSection />
-      <img src={mandalaImg} alt="" className="w-full opacity-15" />
       <RSVPSection />
       {/* Footer */}
       <footer className="text-center py-10 border-t border-primary/10">
