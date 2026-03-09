@@ -250,7 +250,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50, rotate: 3 }}
             animate={{ opacity: 1, x: 0, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
-            className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}
+            className={`font-display ${sizes.nameSize} font-bold text-primary leading-none drop-shadow-lg`}
           >
             Rahul
           </motion.h1>
