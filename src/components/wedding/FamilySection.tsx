@@ -47,16 +47,16 @@ const brideFamilyAll: FamilyMember[] = [
 ];
 
 const groomFamilyKey: FamilyMember[] = [
-  { name: "Mr. Rajendra Verma", relation: "Father", gender: "male" },
-  { name: "Mrs. Kavita Verma", relation: "Mother", gender: "female" },
+  { name: "Mr. Rajendra Verma", relation: "Father", gender: "male", side: "groom" },
+  { name: "Mrs. Kavita Verma", relation: "Mother", gender: "female", side: "groom" },
 ];
 
 const groomFamilyAll: FamilyMember[] = [
   ...groomFamilyKey,
-  { name: "Amit Verma", relation: "Brother", gender: "male", young: true },
-  { name: "Mr. Dinesh Verma", relation: "Uncle", gender: "male" },
-  { name: "Mrs. Asha Verma", relation: "Aunt", gender: "female" },
-  { name: "Neha Verma", relation: "Cousin", gender: "female", young: true },
+  { name: "Amit Verma", relation: "Brother", gender: "male", young: true, side: "groom" },
+  { name: "Mr. Dinesh Verma", relation: "Uncle", gender: "male", side: "groom" },
+  { name: "Mrs. Asha Verma", relation: "Aunt", gender: "female", side: "groom" },
+  { name: "Neha Verma", relation: "Cousin", gender: "female", young: true, side: "groom" },
 ];
 
 const MemberCard = ({ member, index }: { member: FamilyMember; index: number }) => (
