@@ -17,6 +17,7 @@ const WeddingDetails = () => {
       <FamilySection />
       <MomentsSection />
       <EventsSection />
+      <BlessingsSection />
       <RSVPSection />
       {/* Footer */}
       <motion.footer
