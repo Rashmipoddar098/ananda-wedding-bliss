@@ -51,7 +51,7 @@ const moments: Moment[] = [
 
 const MomentsSection = () => {
   return (
-    <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
+    <section className="py-10 sm:py-16 px-4 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-accent/[0.03] blur-3xl" />

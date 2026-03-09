@@ -208,7 +208,7 @@ const FamilyColumn = ({
 
 const FamilySection = () => {
   return (
-    <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
+    <section className="pt-16 sm:pt-24 pb-8 sm:pb-12 px-4 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/[0.03] blur-3xl" />
