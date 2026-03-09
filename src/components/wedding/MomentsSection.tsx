@@ -8,6 +8,7 @@ import momentJaimala from "@/assets/moment-jaimala.jpg";
 import momentSindoor from "@/assets/moment-sindoor.jpg";
 import momentSangeet from "@/assets/moment-sangeet.jpg";
 import momentVidaai from "@/assets/moment-vidaai.jpg";
+import momentBaraat from "@/assets/moment-baraat.jpg";
 
 interface Moment {
   img: string;
