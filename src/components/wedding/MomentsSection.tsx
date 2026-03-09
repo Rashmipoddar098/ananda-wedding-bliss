@@ -6,6 +6,8 @@ import momentWedding from "@/assets/moment-wedding.jpg";
 import momentCouple from "@/assets/moment-couple.jpg";
 import momentJaimala from "@/assets/moment-jaimala.jpg";
 import momentSindoor from "@/assets/moment-sindoor.jpg";
+import momentSangeet from "@/assets/moment-sangeet.jpg";
+import momentVidaai from "@/assets/moment-vidaai.jpg";
 
 interface Moment {
   img: string;
@@ -40,12 +42,21 @@ const moments: Moment[] = [
     img: momentWedding,
     title: "Sacred Pheras",
     caption: "Seven vows around the holy fire",
-    span: "md:col-span-2",
   },
   {
     img: momentSindoor,
     title: "Sindoor Moment",
     caption: "The mark of togetherness",
+  },
+  {
+    img: momentSangeet,
+    title: "Sangeet Night",
+    caption: "Dancing into forever",
+  },
+  {
+    img: momentVidaai,
+    title: "Vidaai",
+    caption: "A tearful farewell, a beautiful beginning",
   },
 ];
 
