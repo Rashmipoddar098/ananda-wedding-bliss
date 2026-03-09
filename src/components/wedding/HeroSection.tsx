@@ -235,7 +235,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-            className="relative my-0 sm:my-1"
+            className="relative -my-1 sm:my-0"
           >
             <motion.span
               className={`font-script text-gold ${sizes.scriptSize} block`}
