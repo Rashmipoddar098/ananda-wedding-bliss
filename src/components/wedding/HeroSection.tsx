@@ -283,7 +283,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 15, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, delay: 0.9, type: "spring", stiffness: 100 }}
-          className="z-10 mt-1 sm:mt-2"
+          className="z-10 -mt-1 sm:mt-0"
         >
           <motion.p
             className={`font-script ${sizes.scriptSize} text-gold drop-shadow-sm relative`}
