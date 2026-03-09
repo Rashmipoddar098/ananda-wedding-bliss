@@ -130,14 +130,12 @@ const HeroSection = () => {
     >
       {/* Animated background elements */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ scale: bgScale }}>
-        {/* Radial glow center */}
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full"
           style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.06) 0%, transparent 70%)" }}
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
-        {/* Secondary glow */}
         <motion.div
           className="absolute top-1/3 left-1/4 w-64 sm:w-96 h-64 sm:h-96 rounded-full"
           style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.03) 0%, transparent 60%)" }}
@@ -152,7 +150,6 @@ const HeroSection = () => {
         />
       </motion.div>
 
-      {/* Sparkle particles */}
       <SparkleParticles />
 
       <motion.div
@@ -164,28 +161,24 @@ const HeroSection = () => {
           className="absolute flex items-center justify-center pointer-events-none"
           style={{ width: sizes.containerSize, height: sizes.containerSize }}
         >
-          {/* Outer ring with pulse */}
           <motion.div
             className="rounded-full absolute border border-primary/15"
             style={{ width: sizes.outerRing, height: sizes.outerRing }}
             animate={{ scale: [1, 1.02, 1], opacity: [0.5, 0.8, 0.5] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
-          {/* Main shining ring */}
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
             className="rounded-full absolute hero-circle-shine"
             style={{ width: sizes.shineRing, height: sizes.shineRing }}
           />
-          {/* Inner ring - counter rotate */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
             className="rounded-full absolute hero-circle-inner"
             style={{ width: sizes.innerRing, height: sizes.innerRing }}
           />
-          {/* Radial glow with animation */}
           <motion.div
             className="rounded-full absolute bg-gradient-to-b from-accent/10 via-transparent to-accent/5"
             style={{ width: sizes.shineRing, height: sizes.shineRing }}
@@ -215,17 +208,33 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Names with stagger */}
+        {/* "Together Forever" - above bride groom names, inside circle */}
+        <motion.div
+          initial={{ opacity: 0, y: -15, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
+          className="z-10 mb-0 sm:mb-1"
+        >
+          <motion.p
+            className={`font-script ${sizes.scriptSize} text-gold drop-shadow-sm relative`}
+            animate={{ textShadow: ["0 0 10px hsl(var(--gold) / 0.2)", "0 0 20px hsl(var(--gold) / 0.4)", "0 0 10px hsl(var(--gold) / 0.2)"] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Together Forever
+          </motion.p>
+        </motion.div>
+
+        {/* Names - pushed down */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center z-10 mb-0 sm:mb-1"
+          className="text-center z-10 mb-0 sm:mb-1 mt-1 sm:mt-2"
         >
           <motion.h1
             initial={{ opacity: 0, x: -50, rotate: -3 }}
             animate={{ opacity: 1, x: 0, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+            transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
             className={`font-display ${sizes.nameSize} font-bold text-primary leading-none drop-shadow-lg`}
           >
             Ananya
@@ -278,47 +287,25 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* "Together Forever" below couple inside circle */}
+        {/* Date - simple text below circle */}
         <motion.div
-          initial={{ opacity: 0, y: 15, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.9, type: "spring", stiffness: 100 }}
-          className="z-10 -mt-1 sm:mt-0"
-        >
-          <motion.p
-            className={`font-script ${sizes.scriptSize} text-gold drop-shadow-sm relative`}
-            animate={{ textShadow: ["0 0 10px hsl(var(--gold) / 0.2)", "0 0 20px hsl(var(--gold) / 0.4)", "0 0 10px hsl(var(--gold) / 0.2)"] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Together Forever
-          </motion.p>
-        </motion.div>
-
-        {/* Date badge - below circle */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="z-10 mt-1 sm:mt-2"
+          className="z-10 mt-2 sm:mt-4 text-center"
         >
-          <motion.div
-            className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-card/60 backdrop-blur-sm border border-primary/10 shadow-wedding"
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px hsl(var(--gold) / 0.3)" }}
-          >
-            <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}>
-              <CalendarHeart size={14} className="text-gold sm:w-4 sm:h-4" />
-            </motion.div>
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+            <CalendarHeart size={14} className="text-gold sm:w-4 sm:h-4" />
             <span className={`font-display ${sizes.dateSize} text-primary font-medium`}>
               8 May 2026
             </span>
-            <div className="w-1 h-1 rounded-full bg-accent/50" />
-            <motion.div animate={{ y: [0, -2, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-              <MapPin size={14} className="text-gold sm:w-4 sm:h-4" />
-            </motion.div>
+          </div>
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-0.5">
+            <MapPin size={12} className="text-gold sm:w-3.5 sm:h-3.5" />
             <span className={`font-body ${sizes.dateSize} text-muted-foreground`}>
               Jaipur, Rajasthan
             </span>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* Scroll indicator */}
