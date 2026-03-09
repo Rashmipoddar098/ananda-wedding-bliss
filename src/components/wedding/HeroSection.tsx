@@ -215,22 +215,6 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* "Together Forever" with shimmer */}
-        <motion.div
-          initial={{ opacity: 0, y: -25, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, type: "spring", stiffness: 100 }}
-          className="z-10 relative"
-        >
-          <motion.p
-            className={`font-script ${sizes.scriptSize} text-gold mb-1 sm:mb-2 drop-shadow-sm relative`}
-            animate={{ textShadow: ["0 0 10px hsl(var(--gold) / 0.2)", "0 0 20px hsl(var(--gold) / 0.4)", "0 0 10px hsl(var(--gold) / 0.2)"] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Together Forever
-          </motion.p>
-        </motion.div>
-
         {/* Names with stagger */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -279,7 +263,6 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 0.8, type: "spring", stiffness: 80 }}
           className="z-10 relative"
         >
-          {/* Glow behind couple */}
           <motion.div
             className="absolute inset-0 -m-4 sm:-m-6 rounded-full"
             style={{ background: "radial-gradient(circle, hsl(var(--gold) / 0.1) 0%, transparent 70%)" }}
@@ -295,7 +278,23 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Date badge */}
+        {/* "Together Forever" below couple inside circle */}
+        <motion.div
+          initial={{ opacity: 0, y: 15, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.9, type: "spring", stiffness: 100 }}
+          className="z-10 mt-1 sm:mt-2"
+        >
+          <motion.p
+            className={`font-script ${sizes.scriptSize} text-gold drop-shadow-sm relative`}
+            animate={{ textShadow: ["0 0 10px hsl(var(--gold) / 0.2)", "0 0 20px hsl(var(--gold) / 0.4)", "0 0 10px hsl(var(--gold) / 0.2)"] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            Together Forever
+          </motion.p>
+        </motion.div>
+
+        {/* Date badge - below circle */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
