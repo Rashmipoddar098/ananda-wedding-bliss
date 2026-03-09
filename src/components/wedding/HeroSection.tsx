@@ -299,7 +299,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="z-10 mt-3 sm:mt-5"
+          className="z-10 mt-1 sm:mt-2"
         >
           <motion.div
             className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-card/60 backdrop-blur-sm border border-primary/10 shadow-wedding"
