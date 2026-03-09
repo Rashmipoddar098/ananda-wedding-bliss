@@ -7,15 +7,26 @@ import portraitMale from "@/assets/portrait-male.png";
 import portraitFemale from "@/assets/portrait-female.png";
 import portraitYoungMale from "@/assets/portrait-young-male.png";
 import portraitYoungFemale from "@/assets/portrait-young-female.png";
+import portraitGroomMale from "@/assets/portrait-groom-male.png";
+import portraitGroomFemale from "@/assets/portrait-groom-female.png";
+import portraitGroomYoungMale from "@/assets/portrait-groom-young-male.png";
+import portraitGroomYoungFemale from "@/assets/portrait-groom-young-female.png";
 
 interface FamilyMember {
   name: string;
   relation: string;
   gender: "male" | "female";
   young?: boolean;
+  side?: "bride" | "groom";
 }
 
 const getPortrait = (member: FamilyMember) => {
+  if (member.side === "groom") {
+    if (member.young) {
+      return member.gender === "male" ? portraitGroomYoungMale : portraitGroomYoungFemale;
+    }
+    return member.gender === "male" ? portraitGroomMale : portraitGroomFemale;
+  }
   if (member.young) {
     return member.gender === "male" ? portraitYoungMale : portraitYoungFemale;
   }
