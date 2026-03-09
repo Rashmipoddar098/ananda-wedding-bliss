@@ -220,13 +220,13 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center z-10 mb-2 sm:mb-4"
+          className="text-center z-10 mb-0 sm:mb-1"
         >
           <motion.h1
             initial={{ opacity: 0, x: -50, rotate: -3 }}
             animate={{ opacity: 1, x: 0, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
-            className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}
+            className={`font-display ${sizes.nameSize} font-bold text-primary leading-none drop-shadow-lg`}
           >
             Ananya
           </motion.h1>
@@ -235,7 +235,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-            className="relative my-0 sm:my-1"
+            className="relative -my-1 sm:my-0"
           >
             <motion.span
               className={`font-script text-gold ${sizes.scriptSize} block`}
@@ -250,7 +250,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50, rotate: 3 }}
             animate={{ opacity: 1, x: 0, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.6, type: "spring" }}
-            className={`font-display ${sizes.nameSize} font-bold text-primary leading-tight drop-shadow-lg`}
+            className={`font-display ${sizes.nameSize} font-bold text-primary leading-none drop-shadow-lg`}
           >
             Rahul
           </motion.h1>
@@ -283,7 +283,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 15, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, delay: 0.9, type: "spring", stiffness: 100 }}
-          className="z-10 mt-1 sm:mt-2"
+          className="z-10 -mt-1 sm:mt-0"
         >
           <motion.p
             className={`font-script ${sizes.scriptSize} text-gold drop-shadow-sm relative`}
@@ -299,7 +299,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="z-10 mt-3 sm:mt-5"
+          className="z-10 mt-1 sm:mt-2"
         >
           <motion.div
             className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-card/60 backdrop-blur-sm border border-primary/10 shadow-wedding"
