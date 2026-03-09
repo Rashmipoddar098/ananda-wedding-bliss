@@ -220,7 +220,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-center z-10 mb-2 sm:mb-4"
+          className="text-center z-10 mb-0 sm:mb-1"
         >
           <motion.h1
             initial={{ opacity: 0, x: -50, rotate: -3 }}
