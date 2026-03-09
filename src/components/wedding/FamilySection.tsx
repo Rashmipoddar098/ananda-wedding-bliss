@@ -7,15 +7,26 @@ import portraitMale from "@/assets/portrait-male.png";
 import portraitFemale from "@/assets/portrait-female.png";
 import portraitYoungMale from "@/assets/portrait-young-male.png";
 import portraitYoungFemale from "@/assets/portrait-young-female.png";
+import portraitGroomMale from "@/assets/portrait-groom-male.png";
+import portraitGroomFemale from "@/assets/portrait-groom-female.png";
+import portraitGroomYoungMale from "@/assets/portrait-groom-young-male.png";
+import portraitGroomYoungFemale from "@/assets/portrait-groom-young-female.png";
 
 interface FamilyMember {
   name: string;
   relation: string;
   gender: "male" | "female";
   young?: boolean;
+  side?: "bride" | "groom";
 }
 
 const getPortrait = (member: FamilyMember) => {
+  if (member.side === "groom") {
+    if (member.young) {
+      return member.gender === "male" ? portraitGroomYoungMale : portraitGroomYoungFemale;
+    }
+    return member.gender === "male" ? portraitGroomMale : portraitGroomFemale;
+  }
   if (member.young) {
     return member.gender === "male" ? portraitYoungMale : portraitYoungFemale;
   }
@@ -36,16 +47,16 @@ const brideFamilyAll: FamilyMember[] = [
 ];
 
 const groomFamilyKey: FamilyMember[] = [
-  { name: "Mr. Rajendra Verma", relation: "Father", gender: "male" },
-  { name: "Mrs. Kavita Verma", relation: "Mother", gender: "female" },
+  { name: "Mr. Rajendra Verma", relation: "Father", gender: "male", side: "groom" },
+  { name: "Mrs. Kavita Verma", relation: "Mother", gender: "female", side: "groom" },
 ];
 
 const groomFamilyAll: FamilyMember[] = [
   ...groomFamilyKey,
-  { name: "Amit Verma", relation: "Brother", gender: "male", young: true },
-  { name: "Mr. Dinesh Verma", relation: "Uncle", gender: "male" },
-  { name: "Mrs. Asha Verma", relation: "Aunt", gender: "female" },
-  { name: "Neha Verma", relation: "Cousin", gender: "female", young: true },
+  { name: "Amit Verma", relation: "Brother", gender: "male", young: true, side: "groom" },
+  { name: "Mr. Dinesh Verma", relation: "Uncle", gender: "male", side: "groom" },
+  { name: "Mrs. Asha Verma", relation: "Aunt", gender: "female", side: "groom" },
+  { name: "Neha Verma", relation: "Cousin", gender: "female", young: true, side: "groom" },
 ];
 
 const MemberCard = ({ member, index }: { member: FamilyMember; index: number }) => (
