@@ -191,7 +191,28 @@ const EventsSection = () => {
                   <InfoRow icon={Calendar} text={event.date} delay={0.5 + index * 0.15} />
                   <InfoRow icon={Clock} text={event.time} delay={0.55 + index * 0.15} />
                   <InfoRow icon={Shirt} text={event.dressCode} delay={0.6 + index * 0.15} />
-                  <InfoRow icon={MapPin} text={event.location} delay={0.65 + index * 0.15} />
+                  <motion.a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.mapQuery)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.65 + index * 0.15, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 4 }}
+                    className="flex items-center gap-3 font-body text-foreground/80 group/link cursor-pointer rounded-lg px-2 py-1.5 -mx-2 hover:bg-accent/10 transition-colors"
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 15, scale: 1.2 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <MapPin size={18} className="text-gold flex-shrink-0" />
+                    </motion.div>
+                    <span className="group-hover/link:text-accent transition-colors underline-offset-2 group-hover/link:underline">
+                      {event.location}
+                    </span>
+                    <ExternalLink size={14} className="text-accent/0 group-hover/link:text-accent transition-all flex-shrink-0" />
+                  </motion.a>
                 </div>
 
                 {/* Corner decoration */}
