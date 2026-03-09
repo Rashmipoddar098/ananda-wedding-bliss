@@ -3,36 +3,49 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Users, Heart } from "lucide-react";
 import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
+import portraitMale from "@/assets/portrait-male.png";
+import portraitFemale from "@/assets/portrait-female.png";
+import portraitYoungMale from "@/assets/portrait-young-male.png";
+import portraitYoungFemale from "@/assets/portrait-young-female.png";
 
 interface FamilyMember {
   name: string;
   relation: string;
+  gender: "male" | "female";
+  young?: boolean;
 }
 
+const getPortrait = (member: FamilyMember) => {
+  if (member.young) {
+    return member.gender === "male" ? portraitYoungMale : portraitYoungFemale;
+  }
+  return member.gender === "male" ? portraitMale : portraitFemale;
+};
+
 const brideFamilyKey: FamilyMember[] = [
-  { name: "Mr. Suresh Sharma", relation: "Father" },
-  { name: "Mrs. Meena Sharma", relation: "Mother" },
+  { name: "Mr. Suresh Sharma", relation: "Father", gender: "male" },
+  { name: "Mrs. Meena Sharma", relation: "Mother", gender: "female" },
 ];
 
 const brideFamilyAll: FamilyMember[] = [
   ...brideFamilyKey,
-  { name: "Priya Sharma", relation: "Sister" },
-  { name: "Mr. Ramesh Sharma", relation: "Uncle" },
-  { name: "Mrs. Sunita Sharma", relation: "Aunt" },
-  { name: "Vikram Sharma", relation: "Brother" },
+  { name: "Priya Sharma", relation: "Sister", gender: "female", young: true },
+  { name: "Mr. Ramesh Sharma", relation: "Uncle", gender: "male" },
+  { name: "Mrs. Sunita Sharma", relation: "Aunt", gender: "female" },
+  { name: "Vikram Sharma", relation: "Brother", gender: "male", young: true },
 ];
 
 const groomFamilyKey: FamilyMember[] = [
-  { name: "Mr. Rajendra Verma", relation: "Father" },
-  { name: "Mrs. Kavita Verma", relation: "Mother" },
+  { name: "Mr. Rajendra Verma", relation: "Father", gender: "male" },
+  { name: "Mrs. Kavita Verma", relation: "Mother", gender: "female" },
 ];
 
 const groomFamilyAll: FamilyMember[] = [
   ...groomFamilyKey,
-  { name: "Amit Verma", relation: "Brother" },
-  { name: "Mr. Dinesh Verma", relation: "Uncle" },
-  { name: "Mrs. Asha Verma", relation: "Aunt" },
-  { name: "Neha Verma", relation: "Cousin" },
+  { name: "Amit Verma", relation: "Brother", gender: "male", young: true },
+  { name: "Mr. Dinesh Verma", relation: "Uncle", gender: "male" },
+  { name: "Mrs. Asha Verma", relation: "Aunt", gender: "female" },
+  { name: "Neha Verma", relation: "Cousin", gender: "female", young: true },
 ];
 
 const MemberCard = ({ member, index }: { member: FamilyMember; index: number }) => (
@@ -44,12 +57,13 @@ const MemberCard = ({ member, index }: { member: FamilyMember; index: number }) 
     className="group relative"
   >
     <div className="relative flex items-center gap-4 rounded-2xl p-4 sm:p-5 border border-primary/15 bg-card/80 backdrop-blur-sm shadow-lg hover:border-accent/40 hover:shadow-wedding transition-all duration-300">
-      {/* Avatar */}
-      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
-        <div className="absolute inset-0 gradient-gold opacity-90" />
-        <span className="relative font-display font-bold text-xl sm:text-2xl text-primary-foreground drop-shadow-md">
-          {member.name.charAt(0)}
-        </span>
+      {/* Portrait */}
+      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex-shrink-0 overflow-hidden border-2 border-accent/30">
+        <img
+          src={getPortrait(member)}
+          alt={member.name}
+          className="w-full h-full object-cover"
+        />
       </div>
       {/* Info */}
       <div className="min-w-0">
