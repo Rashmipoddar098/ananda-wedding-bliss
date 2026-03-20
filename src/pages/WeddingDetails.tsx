@@ -6,6 +6,7 @@ import MomentsSection from "@/components/wedding/MomentsSection";
 import EventsSection from "@/components/wedding/EventsSection";
 import BlessingsSection from "@/components/wedding/BlessingsSection";
 import RSVPSection from "@/components/wedding/RSVPSection";
+import ContactSection from "@/components/wedding/ContactSection";
 import FloatingPetals from "@/components/FloatingPetals";
 
 const WeddingDetails = () => {
@@ -19,6 +20,7 @@ const WeddingDetails = () => {
       <EventsSection />
       <BlessingsSection />
       <RSVPSection />
+      <ContactSection />
       {/* Footer */}
       <motion.footer
         initial={{ opacity: 0 }}
