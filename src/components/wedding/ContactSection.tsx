@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, MessageCircle, Sparkles } from "lucide-react";
+import { Phone, MessageCircle, Sparkles, Heart } from "lucide-react";
 import fatherBrideImg from "@/assets/father-bride.jpg";
 import fatherGroomImg from "@/assets/father-groom.jpg";
 
@@ -10,6 +10,7 @@ const contacts = [
     phone: "+91 98765 43210",
     whatsapp: "+91 98765 43210",
     image: fatherBrideImg,
+    emoji: "👰",
   },
   {
     title: "Father of the Groom",
@@ -17,6 +18,7 @@ const contacts = [
     phone: "+91 98765 43211",
     whatsapp: "+91 98765 43211",
     image: fatherGroomImg,
+    emoji: "🤵",
   },
 ];
 
@@ -28,88 +30,166 @@ const ContactCard = ({
   index: number;
 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 40, scale: 0.95 }}
-    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ duration: 0.6, delay: index * 0.2, type: "spring", stiffness: 100 }}
+    initial={{ opacity: 0, y: 50, rotateY: -15 }}
+    whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+    transition={{ duration: 0.7, delay: index * 0.25, type: "spring", stiffness: 80 }}
     viewport={{ once: true }}
+    whileHover={{ y: -6 }}
+    className="relative"
   >
-    <div className="relative bg-card/80 backdrop-blur-sm border border-primary/15 rounded-2xl p-5 sm:p-7 text-center space-y-3 sm:space-y-4 overflow-hidden shadow-wedding">
-      {/* Corner decorations */}
-      <div className="absolute top-2 left-2 w-5 h-5 border-t-2 border-l-2 border-primary/20 rounded-tl-lg" />
-      <div className="absolute top-2 right-2 w-5 h-5 border-t-2 border-r-2 border-primary/20 rounded-tr-lg" />
-      <div className="absolute bottom-2 left-2 w-5 h-5 border-b-2 border-l-2 border-primary/20 rounded-bl-lg" />
-      <div className="absolute bottom-2 right-2 w-5 h-5 border-b-2 border-r-2 border-primary/20 rounded-br-lg" />
+    {/* Outer glow on hover */}
+    <motion.div
+      className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-accent/20 via-primary/10 to-accent/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+      initial={{ opacity: 0 }}
+      whileHover={{ opacity: 1 }}
+    />
 
-      {/* Shimmer */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent pointer-events-none"
-        animate={{ x: ["-100%", "200%"] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
-      />
-
-      {/* Photo Avatar */}
-      <motion.div
-        className="mx-auto w-20 h-20 sm:w-24 sm:h-24 rounded-full border-[3px] border-accent/40 overflow-hidden shadow-lg relative"
-        whileHover={{ scale: 1.08 }}
-        transition={{ duration: 0.3 }}
-      >
-        <img
-          src={contact.image}
-          alt={contact.name}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+    <div className="relative bg-gradient-to-b from-card/95 to-card/80 backdrop-blur-md border border-accent/20 rounded-3xl overflow-hidden shadow-[0_8px_32px_-8px_hsl(var(--primary)/0.15)]">
+      
+      {/* Top decorative band */}
+      <div className="h-20 sm:h-24 bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 relative overflow-hidden">
+        {/* Animated pattern */}
         <motion.div
-          className="absolute inset-0 rounded-full border-2 border-accent/30"
-          animate={{ opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, hsl(var(--accent)/0.3) 1px, transparent 1px),
+                             radial-gradient(circle at 80% 30%, hsl(var(--accent)/0.2) 1px, transparent 1px),
+                             radial-gradient(circle at 50% 80%, hsl(var(--primary)/0.2) 1px, transparent 1px)`,
+            backgroundSize: "30px 30px, 40px 40px, 25px 25px",
+          }}
+          animate={{ backgroundPosition: ["0px 0px", "30px 30px"] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
-      </motion.div>
-
-      {/* Title & Name */}
-      <div className="space-y-0.5">
-        <p className="font-display text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground uppercase">
-          {contact.title}
-        </p>
-        <motion.p
-          className="font-display text-base sm:text-xl font-bold text-primary"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 + index * 0.2 }}
-          viewport={{ once: true }}
-        >
-          {contact.name}
-        </motion.p>
+        {/* Shimmer sweep */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          animate={{ x: ["-200%", "200%"] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
+        />
+        {/* Floating sparkles */}
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-accent/40"
+            style={{ left: `${20 + i * 30}%`, top: `${20 + i * 15}%` }}
+            animate={{ y: [0, -8, 0], opacity: [0.3, 0.7, 0.3], scale: [0.8, 1.1, 0.8] }}
+            transition={{ duration: 2 + i * 0.5, repeat: Infinity, delay: i * 0.4 }}
+          >
+            <Sparkles size={10 + i * 2} />
+          </motion.div>
+        ))}
       </div>
 
-      <div className="w-8 h-px bg-primary/20 mx-auto" />
-
-      {/* Phone number */}
-      <p className="font-body text-xs sm:text-sm text-muted-foreground">{contact.phone}</p>
-
-      {/* Buttons */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3 pt-1">
-        <motion.a
-          href={`tel:${contact.phone.replace(/\s/g, "")}`}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-5 py-2 rounded-lg bg-primary/10 border border-primary/20 text-primary font-display text-[11px] sm:text-sm tracking-wider hover:bg-primary/15 transition-colors"
+      {/* Photo - overlapping the band */}
+      <div className="flex justify-center -mt-12 sm:-mt-14 relative z-10">
+        <motion.div
+          className="relative"
+          whileHover={{ scale: 1.06, rotate: [0, -2, 2, 0] }}
+          transition={{ duration: 0.4 }}
         >
-          <Phone size={13} className="sm:w-4 sm:h-4" />
-          <span>Call</span>
-        </motion.a>
+          {/* Ring glow */}
+          <motion.div
+            className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-accent/50 via-primary/30 to-accent/50 blur-sm"
+            animate={{ opacity: [0.4, 0.8, 0.4], rotate: [0, 360] }}
+            transition={{ opacity: { duration: 2.5, repeat: Infinity }, rotate: { duration: 8, repeat: Infinity, ease: "linear" } }}
+          />
+          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-[3px] border-card overflow-hidden relative shadow-xl">
+            <img
+              src={contact.image}
+              alt={contact.name}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          {/* Emoji badge */}
+          <motion.div
+            className="absolute -bottom-1 -right-1 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-card border-2 border-accent/30 flex items-center justify-center text-sm shadow-md"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ delay: 0.5 + index * 0.2, type: "spring", stiffness: 300 }}
+            viewport={{ once: true }}
+          >
+            {contact.emoji}
+          </motion.div>
+        </motion.div>
+      </div>
 
-        <motion.a
-          href={`https://wa.me/${contact.whatsapp.replace(/[\s+]/g, "")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-5 py-2 rounded-lg gradient-gold text-primary-foreground font-display text-[11px] sm:text-sm tracking-wider font-bold"
+      {/* Content */}
+      <div className="px-5 sm:px-7 pb-6 sm:pb-7 pt-4 text-center space-y-3">
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 + index * 0.15 }}
+          viewport={{ once: true }}
         >
-          <MessageCircle size={13} className="sm:w-4 sm:h-4" />
-          <span>WhatsApp</span>
-        </motion.a>
+          <p className="font-display text-[10px] sm:text-xs tracking-[0.2em] text-accent/80 uppercase font-medium">
+            {contact.title}
+          </p>
+          <p className="font-display text-lg sm:text-2xl font-bold text-primary mt-1">
+            {contact.name}
+          </p>
+        </motion.div>
+
+        {/* Decorative divider */}
+        <motion.div
+          className="flex items-center justify-center gap-2"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-r from-transparent to-accent/40" />
+          <motion.div
+            animate={{ scale: [1, 1.3, 1], rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            <Heart size={10} className="text-accent/60 fill-accent/30" />
+          </motion.div>
+          <div className="w-8 sm:w-12 h-px bg-gradient-to-l from-transparent to-accent/40" />
+        </motion.div>
+
+        {/* Phone */}
+        <motion.p
+          className="font-body text-xs sm:text-sm text-muted-foreground tracking-wide"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          {contact.phone}
+        </motion.p>
+
+        {/* Action Buttons */}
+        <motion.div
+          className="flex items-center gap-2.5 sm:gap-3 pt-2"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.a
+            href={`tel:${contact.phone.replace(/\s/g, "")}`}
+            whileHover={{ scale: 1.06, y: -2 }}
+            whileTap={{ scale: 0.94 }}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 sm:py-3 rounded-xl bg-primary/8 border border-primary/15 text-primary font-display text-xs sm:text-sm tracking-wider hover:bg-primary/12 hover:border-primary/25 transition-all duration-300"
+          >
+            <Phone size={14} />
+            <span>Call</span>
+          </motion.a>
+
+          <motion.a
+            href={`https://wa.me/${contact.whatsapp.replace(/[\s+]/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.06, y: -2 }}
+            whileTap={{ scale: 0.94 }}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 sm:py-3 rounded-xl gradient-gold text-primary-foreground font-display text-xs sm:text-sm tracking-wider font-bold shadow-[0_4px_15px_-3px_hsl(40_70%_50%/0.4)]"
+          >
+            <MessageCircle size={14} />
+            <span>WhatsApp</span>
+          </motion.a>
+        </motion.div>
       </div>
     </div>
   </motion.div>
@@ -117,26 +197,26 @@ const ContactCard = ({
 
 const ContactSection = () => {
   return (
-    <section className="py-12 sm:py-20 px-3 sm:px-4 relative overflow-hidden">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-1/4 right-10 w-32 h-32 rounded-full bg-accent/[0.06] blur-2xl"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute top-1/4 right-10 w-40 h-40 rounded-full bg-accent/[0.05] blur-3xl"
+          animate={{ y: [0, -25, 0], x: [0, 10, 0] }}
+          transition={{ duration: 7, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-10 w-40 h-40 rounded-full bg-pastel-pink/20 blur-2xl"
-          animate={{ y: [0, 25, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute bottom-1/4 left-10 w-48 h-48 rounded-full bg-pastel-pink/15 blur-3xl"
+          animate={{ y: [0, 30, 0], x: [0, -10, 0] }}
+          transition={{ duration: 9, repeat: Infinity }}
         />
       </div>
 
       <div className="max-w-xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10">
+        <div className="text-center mb-10 sm:mb-12">
           <motion.p
-            initial={{ opacity: 0, y: -15 }}
+            initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
@@ -158,10 +238,10 @@ const ContactSection = () => {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center gap-3 mt-3"
+            className="flex items-center justify-center gap-3 mt-4"
           >
             <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent to-accent/50" />
-            <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+            <motion.div animate={{ scale: [1, 1.4, 1], rotate: [0, 180, 360] }} transition={{ duration: 4, repeat: Infinity }}>
               <Sparkles size={14} className="text-accent/70" />
             </motion.div>
             <div className="w-16 sm:w-24 h-px bg-gradient-to-l from-transparent to-accent/50" />
@@ -169,7 +249,7 @@ const ContactSection = () => {
         </div>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
           {contacts.map((contact, i) => (
             <ContactCard key={contact.title} contact={contact} index={i} />
           ))}
