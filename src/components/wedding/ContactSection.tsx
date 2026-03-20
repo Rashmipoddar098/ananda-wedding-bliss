@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, MessageCircle, Sparkles, User } from "lucide-react";
+import { Phone, MessageCircle, Sparkles } from "lucide-react";
 
 const contacts = [
   {
@@ -7,12 +7,14 @@ const contacts = [
     name: "Mr. Sharma",
     phone: "+91 98765 43210",
     whatsapp: "+91 98765 43210",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face",
   },
   {
     title: "Father of the Groom",
     name: "Mr. Verma",
     phone: "+91 98765 43211",
     whatsapp: "+91 98765 43211",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
   },
 ];
 
@@ -30,12 +32,12 @@ const ContactCard = ({
     viewport={{ once: true }}
     className="relative group"
   >
-    <div className="relative bg-card/80 backdrop-blur-sm border border-primary/15 rounded-2xl p-6 sm:p-8 text-center space-y-4 overflow-hidden shadow-wedding">
+    <div className="relative bg-card/80 backdrop-blur-sm border border-primary/15 rounded-2xl p-5 sm:p-6 text-center space-y-3 overflow-hidden shadow-wedding">
       {/* Corner decorations */}
-      <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-primary/20 rounded-tl-lg" />
-      <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-primary/20 rounded-tr-lg" />
-      <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-primary/20 rounded-bl-lg" />
-      <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-primary/20 rounded-br-lg" />
+      <div className="absolute top-2 left-2 w-5 h-5 border-t-2 border-l-2 border-primary/20 rounded-tl-lg" />
+      <div className="absolute top-2 right-2 w-5 h-5 border-t-2 border-r-2 border-primary/20 rounded-tr-lg" />
+      <div className="absolute bottom-2 left-2 w-5 h-5 border-b-2 border-l-2 border-primary/20 rounded-bl-lg" />
+      <div className="absolute bottom-2 right-2 w-5 h-5 border-b-2 border-r-2 border-primary/20 rounded-br-lg" />
 
       {/* Shimmer */}
       <motion.div
@@ -44,22 +46,33 @@ const ContactCard = ({
         transition={{ duration: 5, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
       />
 
-      {/* Avatar */}
+      {/* Photo Avatar */}
       <motion.div
-        className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center"
-        whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-        transition={{ duration: 0.4 }}
+        className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-accent/40 overflow-hidden shadow-lg relative"
+        whileHover={{ scale: 1.08 }}
+        transition={{ duration: 0.3 }}
       >
-        <User size={24} className="text-primary" />
+        <img
+          src={contact.image}
+          alt={contact.name}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        {/* Gold ring glow */}
+        <motion.div
+          className="absolute inset-0 rounded-full border-2 border-accent/30"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 2.5, repeat: Infinity }}
+        />
       </motion.div>
 
-      {/* Title */}
-      <div>
-        <p className="font-display text-xs sm:text-sm tracking-[0.2em] text-muted-foreground uppercase">
+      {/* Title & Name */}
+      <div className="space-y-0.5">
+        <p className="font-display text-[10px] sm:text-xs tracking-[0.2em] text-muted-foreground uppercase">
           {contact.title}
         </p>
         <motion.p
-          className="font-display text-lg sm:text-xl font-bold text-primary mt-1"
+          className="font-display text-base sm:text-lg font-bold text-primary"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 + index * 0.2 }}
@@ -69,17 +82,20 @@ const ContactCard = ({
         </motion.p>
       </div>
 
-      <div className="w-10 h-px bg-primary/20 mx-auto" />
+      <div className="w-8 h-px bg-primary/20 mx-auto" />
 
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+      {/* Phone number display */}
+      <p className="font-body text-xs sm:text-sm text-muted-foreground">{contact.phone}</p>
+
+      {/* Buttons - always row, compact */}
+      <div className="flex items-center justify-center gap-2 pt-1">
         <motion.a
           href={`tel:${contact.phone.replace(/\s/g, "")}`}
-          whileHover={{ scale: 1.05, boxShadow: "0 8px 25px -8px hsl(var(--primary) / 0.3)" }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary font-display text-sm tracking-wider hover:bg-primary/15 transition-colors w-full sm:w-auto justify-center"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary/10 border border-primary/20 text-primary font-display text-xs sm:text-sm tracking-wider hover:bg-primary/15 transition-colors"
         >
-          <Phone size={16} />
+          <Phone size={14} />
           <span>Call</span>
         </motion.a>
 
@@ -87,11 +103,11 @@ const ContactCard = ({
           href={`https://wa.me/${contact.whatsapp.replace(/[\s+]/g, "")}`}
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.05, boxShadow: "0 8px 25px -8px hsl(40 70% 50% / 0.3)" }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl gradient-gold text-primary-foreground font-display text-sm tracking-wider font-bold w-full sm:w-auto justify-center"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-lg gradient-gold text-primary-foreground font-display text-xs sm:text-sm tracking-wider font-bold"
         >
-          <MessageCircle size={16} />
+          <MessageCircle size={14} />
           <span>WhatsApp</span>
         </motion.a>
       </div>
@@ -116,7 +132,7 @@ const ContactSection = () => {
         />
       </div>
 
-      <div className="max-w-lg mx-auto relative z-10">
+      <div className="max-w-md mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10">
           <motion.p
@@ -153,7 +169,7 @@ const ContactSection = () => {
         </div>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5">
           {contacts.map((contact, i) => (
             <ContactCard key={contact.title} contact={contact} index={i} />
           ))}
