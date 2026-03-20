@@ -92,7 +92,7 @@ const CountdownSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 px-3 sm:px-4 relative overflow-hidden">
+    <section className="py-10 sm:py-20 px-3 sm:px-4 relative overflow-hidden">
       {/* Background orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
