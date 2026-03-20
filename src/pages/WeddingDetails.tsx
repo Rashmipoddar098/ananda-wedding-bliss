@@ -20,6 +20,7 @@ const WeddingDetails = () => {
       <EventsSection />
       <BlessingsSection />
       <RSVPSection />
+      <ContactSection />
       {/* Footer */}
       <motion.footer
         initial={{ opacity: 0 }}
