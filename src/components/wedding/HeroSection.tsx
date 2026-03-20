@@ -313,7 +313,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="z-10 mt-6 sm:mt-10"
+          className="z-10 mt-3 sm:mt-10"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
