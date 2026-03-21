@@ -210,6 +210,32 @@
   animation: petal-fall linear infinite;
 }
 
+/* Animated gold border for sections */
+@keyframes border-glow {
+  0%, 100% { border-color: hsl(var(--gold) / 0.1); box-shadow: 0 0 0 0 hsl(var(--gold) / 0); }
+  50% { border-color: hsl(var(--gold) / 0.35); box-shadow: 0 0 20px -5px hsl(var(--gold) / 0.15); }
+}
+
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+/* Scrollable blessings wall */
+.blessings-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.blessings-scroll::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.3);
+  border-radius: 10px;
+}
+.blessings-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold) / 0.4);
+  border-radius: 10px;
+}
+.blessings-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--gold) / 0.6);
+}
+
 /* Hero section rich background */
 .hero-bg {
   background: radial-gradient(

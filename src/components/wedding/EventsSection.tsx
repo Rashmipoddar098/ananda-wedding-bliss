@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Shirt, Sparkles, Heart, ExternalLink } from "lucide-react";
+import { Calendar, Clock, MapPin, Shirt, Sparkles, Heart, Navigation } from "lucide-react";
 
 interface WeddingEvent {
   name: string;
@@ -67,6 +67,35 @@ const InfoRow = ({ icon: Icon, text, delay }: { icon: any; text: string; delay: 
     </motion.div>
     <span>{text}</span>
   </motion.div>
+);
+
+const LocationButton = ({ event, index }: { event: WeddingEvent; index: number }) => (
+  <motion.a
+    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.mapQuery)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.7 + index * 0.15, duration: 0.5 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.05, y: -2 }}
+    whileTap={{ scale: 0.97 }}
+    className="mt-4 sm:mt-5 w-full flex items-center justify-center gap-2.5 py-2.5 sm:py-3 px-4 rounded-xl bg-gradient-to-r from-primary/90 to-primary/70 text-primary-foreground font-display text-sm sm:text-base shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden group/btn"
+  >
+    {/* Shimmer sweep */}
+    <div className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500">
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+    </div>
+
+    <motion.div
+      animate={{ y: [0, -2, 0] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+    >
+      <MapPin size={16} className="flex-shrink-0" />
+    </motion.div>
+    <span className="truncate">{event.location}</span>
+    <Navigation size={14} className="flex-shrink-0 opacity-70" />
+  </motion.a>
 );
 
 const EventsSection = () => {
@@ -151,7 +180,7 @@ const EventsSection = () => {
                 transition={{ duration: 0.7, delay: index * 0.15, type: "spring", stiffness: 100, damping: 15 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.03, transition: { duration: 0.3 } }}
-                className="group relative bg-card/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-wedding border border-primary/15 text-center overflow-hidden"
+                className="group relative bg-card/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-wedding border border-primary/15 animate-border-glow text-center overflow-hidden flex flex-col"
               >
                 {/* Gradient top accent */}
                 <motion.div
@@ -187,33 +216,14 @@ const EventsSection = () => {
                   {event.name}
                 </motion.h3>
 
-                <div className="space-y-2.5 sm:space-y-3 text-left text-sm sm:text-base">
+                <div className="space-y-2.5 sm:space-y-3 text-left text-sm sm:text-base flex-1">
                   <InfoRow icon={Calendar} text={event.date} delay={0.5 + index * 0.15} />
                   <InfoRow icon={Clock} text={event.time} delay={0.55 + index * 0.15} />
                   <InfoRow icon={Shirt} text={event.dressCode} delay={0.6 + index * 0.15} />
-                  <motion.a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.mapQuery)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.65 + index * 0.15, duration: 0.4 }}
-                    viewport={{ once: true }}
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-3 font-body text-foreground/80 group/link cursor-pointer rounded-lg px-2 py-1.5 -mx-2 hover:bg-accent/10 transition-colors"
-                  >
-                    <motion.div
-                      whileHover={{ rotate: 15, scale: 1.2 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <MapPin size={18} className="text-gold flex-shrink-0" />
-                    </motion.div>
-                    <span className="group-hover/link:text-accent transition-colors underline-offset-2 group-hover/link:underline">
-                      {event.location}
-                    </span>
-                    <ExternalLink size={14} className="text-accent/0 group-hover/link:text-accent transition-all flex-shrink-0" />
-                  </motion.a>
                 </div>
+
+                {/* Location Button */}
+                <LocationButton event={event} index={index} />
 
                 {/* Corner decoration */}
                 <motion.div
