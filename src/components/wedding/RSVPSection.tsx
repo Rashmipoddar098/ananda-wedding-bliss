@@ -266,6 +266,7 @@ const RSVPSection = () => {
                   <span className="relative">💌</span>
                 </motion.button>
               </div>
+              </div>
             </motion.div>
           ) : (
             <motion.div
