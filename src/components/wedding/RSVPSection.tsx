@@ -155,9 +155,9 @@ const RSVPSection = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -30, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 100, damping: 15 }}
-              className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-wedding"
+              className="relative animate-rotating-border rounded-2xl sm:rounded-3xl shadow-wedding"
             >
-              <div className="bg-card/80 backdrop-blur-sm border border-primary/15 p-6 sm:p-8 md:p-10 text-center space-y-5 sm:space-y-6 relative">
+              <div className="bg-card/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 text-center space-y-5 sm:space-y-6 relative overflow-hidden">
                 <CornerDecorations />
 
                 {/* Shimmer */}
