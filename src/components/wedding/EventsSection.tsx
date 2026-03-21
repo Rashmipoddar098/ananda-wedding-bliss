@@ -180,8 +180,9 @@ const EventsSection = () => {
                 transition={{ duration: 0.7, delay: index * 0.15, type: "spring", stiffness: 100, damping: 15 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.03, transition: { duration: 0.3 } }}
-                className="group relative bg-card/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-wedding border border-primary/15 animate-border-glow text-center overflow-hidden flex flex-col"
+                className="group relative animate-rotating-border rounded-2xl sm:rounded-3xl"
               >
+              <div className="bg-card/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-wedding text-center overflow-hidden flex flex-col relative">
                 {/* Gradient top accent */}
                 <motion.div
                   className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${event.color}`}
@@ -231,6 +232,7 @@ const EventsSection = () => {
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
                 />
+              </div>
               </motion.div>
             );
           })}

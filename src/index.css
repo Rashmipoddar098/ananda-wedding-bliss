@@ -220,6 +220,65 @@
   animation: border-glow 3s ease-in-out infinite;
 }
 
+/* Rotating conic gradient border */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+.animate-rotating-border {
+  position: relative;
+  z-index: 0;
+}
+
+.animate-rotating-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    hsl(var(--gold) / 0.05),
+    hsl(var(--gold) / 0.5),
+    hsl(var(--gold-light) / 0.6),
+    hsl(var(--accent) / 0.3),
+    hsl(var(--gold) / 0.05),
+    hsl(var(--gold) / 0.5),
+    hsl(var(--gold-light) / 0.6),
+    hsl(var(--gold) / 0.05)
+  );
+  animation: rotate-border 4s linear infinite;
+}
+
+.animate-rotating-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: hsl(var(--card));
+}
+
+/* Blessings marquee */
+@keyframes marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.blessings-marquee {
+  animation: marquee-up 30s linear infinite;
+}
+
+.blessings-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Scrollable blessings wall */
 .blessings-scroll::-webkit-scrollbar {
   width: 4px;

@@ -44,7 +44,8 @@ const ContactCard = ({
       whileHover={{ opacity: 1 }}
     />
 
-    <div className="relative bg-gradient-to-b from-card/95 to-card/80 backdrop-blur-md border border-accent/20 rounded-3xl overflow-hidden shadow-[0_8px_32px_-8px_hsl(var(--primary)/0.15)]">
+    <div className="animate-rotating-border rounded-3xl">
+    <div className="relative bg-gradient-to-b from-card/95 to-card/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-[0_8px_32px_-8px_hsl(var(--primary)/0.15)]">
       
       {/* Top decorative band */}
       <div className="h-20 sm:h-24 bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 relative overflow-hidden">
@@ -191,6 +192,7 @@ const ContactCard = ({
           </motion.a>
         </motion.div>
       </div>
+    </div>
     </div>
   </motion.div>
 );
