@@ -231,6 +231,7 @@ const CountdownSection = () => {
               ))}
             </div>
           </div>
+          </div>
         </motion.div>
 
         {/* Date & Venue */}

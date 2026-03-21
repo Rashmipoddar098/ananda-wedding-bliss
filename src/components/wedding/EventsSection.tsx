@@ -232,6 +232,7 @@ const EventsSection = () => {
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
                 />
+              </div>
               </motion.div>
             );
           })}

@@ -193,6 +193,7 @@ const ContactCard = ({
         </motion.div>
       </div>
     </div>
+    </div>
   </motion.div>
 );
 
