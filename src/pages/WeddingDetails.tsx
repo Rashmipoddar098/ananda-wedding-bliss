@@ -8,11 +8,13 @@ import BlessingsSection from "@/components/wedding/BlessingsSection";
 import RSVPSection from "@/components/wedding/RSVPSection";
 import ContactSection from "@/components/wedding/ContactSection";
 import FloatingPetals from "@/components/FloatingPetals";
+import FallingHearts from "@/components/wedding/FallingHearts";
 
 const WeddingDetails = () => {
   return (
     <div className="min-h-screen gradient-wedding relative">
       <FloatingPetals />
+      <FallingHearts />
       <HeroSection />
       <CountdownSection />
       <FamilySection />
