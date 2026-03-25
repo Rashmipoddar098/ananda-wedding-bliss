@@ -150,8 +150,8 @@ const BlessingsSection = () => {
             viewport={{ once: true }}
             className="order-1 lg:order-2"
           >
-            <div className="animate-rotating-border rounded-2xl sm:rounded-3xl">
-              <div className="bg-card/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-wedding relative overflow-hidden">
+            <div className="animate-rotating-border rounded-3xl">
+              <div className="bg-card/90 backdrop-blur-sm rounded-3xl p-5 sm:p-6 shadow-wedding relative overflow-hidden">
                 <motion.div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold/30 via-accent/40 to-gold/30" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ delay: 0.5, duration: 0.8 }} viewport={{ once: true }} />
 
                 <div className="flex items-center gap-3 mb-5">

@@ -175,8 +175,9 @@ const FamilyColumn = ({
       />
 
       {/* Card */}
+      <div className="animate-rotating-border rounded-3xl">
       <motion.div
-        className="relative rounded-3xl border border-primary/10 bg-card/50 backdrop-blur-sm overflow-hidden"
+        className="relative rounded-3xl bg-card/50 backdrop-blur-sm overflow-hidden"
         whileHover={{ boxShadow: "0 15px 50px -15px hsl(var(--gold) / 0.15)" }}
         transition={{ duration: 0.3 }}
       >
@@ -298,6 +299,7 @@ const FamilyColumn = ({
           </motion.button>
         </div>
       </motion.div>
+      </div>
 
       {/* Modal */}
       <AnimatePresence>

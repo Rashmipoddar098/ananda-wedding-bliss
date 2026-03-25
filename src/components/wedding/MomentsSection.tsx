@@ -90,6 +90,7 @@ const MomentCard = ({ moment, index }: { moment: Moment; index: number }) => {
   const variant = cardVariants[index % cardVariants.length];
 
   return (
+    <div className={`animate-rotating-border rounded-3xl ${moment.span || ""}`}>
     <motion.div
       ref={ref}
       initial={variant.initial}
@@ -103,7 +104,7 @@ const MomentCard = ({ moment, index }: { moment: Moment; index: number }) => {
       }}
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-wedding border border-primary/10 cursor-pointer ${moment.span || ""}`}
+      className="group relative rounded-3xl overflow-hidden shadow-wedding cursor-pointer"
     >
       <div className="relative w-full h-56 xs:h-64 sm:h-72 md:h-full min-h-[220px] sm:min-h-[250px]">
         {/* Image with parallax-like zoom */}
@@ -183,6 +184,7 @@ const MomentCard = ({ moment, index }: { moment: Moment; index: number }) => {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/0 via-accent to-accent/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
       </div>
     </motion.div>
+    </div>
   );
 };
 
