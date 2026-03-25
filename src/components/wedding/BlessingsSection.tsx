@@ -148,7 +148,7 @@ const BlessingsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 order-1 lg:order-2"
+            className="order-1 lg:order-2"
           >
             <div className="animate-rotating-border rounded-2xl sm:rounded-3xl">
               <div className="bg-card/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-wedding relative overflow-hidden">
