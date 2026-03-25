@@ -180,9 +180,9 @@ const EventsSection = () => {
                 transition={{ duration: 0.7, delay: index * 0.15, type: "spring", stiffness: 100, damping: 15 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.03, transition: { duration: 0.3 } }}
-                className="group relative animate-rotating-border rounded-2xl sm:rounded-3xl"
+                className="group relative animate-rotating-border rounded-3xl"
               >
-              <div className="bg-card/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-wedding text-center overflow-hidden flex flex-col relative">
+              <div className="bg-card/90 backdrop-blur-sm rounded-3xl p-5 sm:p-6 md:p-8 shadow-wedding text-center overflow-hidden flex flex-col relative">
                 {/* Gradient top accent */}
                 <motion.div
                   className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${event.color}`}

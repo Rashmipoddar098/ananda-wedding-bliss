@@ -214,8 +214,8 @@ const CountdownSection = () => {
           <div className="absolute -inset-3 sm:-inset-4 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-accent/[0.06] via-primary/[0.04] to-accent/[0.06] blur-xl" />
 
           {/* Glass container */}
-          <div className="relative animate-rotating-border rounded-2xl sm:rounded-3xl">
-          <div className="bg-gradient-to-b from-card/80 to-card/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl px-4 py-5 sm:px-8 sm:py-7 md:px-10 md:py-8">
+          <div className="relative animate-rotating-border rounded-3xl">
+          <div className="bg-gradient-to-b from-card/80 to-card/60 backdrop-blur-sm rounded-3xl px-4 py-5 sm:px-8 sm:py-7 md:px-10 md:py-8">
             {/* Corner accents */}
             <div className="absolute top-0 left-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-l-2 border-accent/30 rounded-tl-2xl sm:rounded-tl-3xl" />
             <div className="absolute top-0 right-0 w-6 h-6 sm:w-8 sm:h-8 border-t-2 border-r-2 border-accent/30 rounded-tr-2xl sm:rounded-tr-3xl" />
