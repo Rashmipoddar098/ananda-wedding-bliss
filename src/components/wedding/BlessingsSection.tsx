@@ -120,14 +120,14 @@ const BlessingsSection = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8">
-          {/* Marquee Wall - takes more space */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Marquee Wall - left on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
             viewport={{ once: true }}
-            className="lg:col-span-3 order-2 lg:order-1"
+            className="order-2 lg:order-1"
           >
             <div className="flex items-center justify-between mb-3">
               <p className="font-display text-sm font-semibold text-primary/70">
