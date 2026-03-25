@@ -6,6 +6,7 @@ import bouquetLeft from "@/assets/floral-bouquet-left.png";
 import bouquetRight from "@/assets/floral-bouquet-right.png";
 import bouquetDiagonal from "@/assets/floral-bouquet-diagonal.png";
 import { useHeroSize } from "@/hooks/use-hero-size";
+import AnimatedHeading from "./AnimatedHeading";
 
 const bouquetPositions = Array.from({ length: 15 }, (_, i) => {
   const angle = i * 24;
@@ -223,6 +224,9 @@ const HeroSection = () => {
             Together Forever
           </motion.p>
         </motion.div>
+
+        {/* Animated Heading */}
+        <AnimatedHeading />
 
         {/* Names - pushed down */}
         <motion.div
